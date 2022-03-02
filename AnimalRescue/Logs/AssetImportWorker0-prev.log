@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2021.2/staging' branch; Version is '2021.2.10f1 (ee872746220e) revision 15632167'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 11  (10.0.22000) 64bit Professional' Language: 'en' Physical Memory: 8065 MB
+OS: 'Windows 10  (10.0.19043) 64bit Core' Language: 'en' Physical Memory: 16345 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2021.2.10f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/dovyd/OneDrive/Documents/GitHub/AnimalRescue/AnimalRescue
+C:/Users/Y/Documents/GayMakers2/AnimalRescue
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52785
-Successfully changed project path to: C:/Users/dovyd/OneDrive/Documents/GitHub/AnimalRescue/AnimalRescue
-C:/Users/dovyd/OneDrive/Documents/GitHub/AnimalRescue/AnimalRescue
+62955
+Successfully changed project path to: C:/Users/Y/Documents/GayMakers2/AnimalRescue
+C:/Users/Y/Documents/GayMakers2/AnimalRescue
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,106 +47,103 @@ C:/Users/dovyd/OneDrive/Documents/GitHub/AnimalRescue/AnimalRescue
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 36.80 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 50.47 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.2.10f1 (ee872746220e)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.2.10f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/dovyd/OneDrive/Documents/GitHub/AnimalRescue/AnimalRescue/Assets
+[Subsystems] Discovering subsystems at path C:/Users/Y/Documents/GayMakers2/AnimalRescue/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c8c)
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
     Vendor:   NVIDIA
-    VRAM:     4019 MB
-    Driver:   30.0.15.1123
+    VRAM:     4053 MB
+    Driver:   30.0.15.1179
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.2.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.2.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.2.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56676
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56380
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.2.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.2.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004768 seconds.
+Registered in 0.018343 seconds.
 Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 41.13 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 49.56 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.636 seconds
+- Completed reload, in  1.006 seconds
 Domain Reload Profiling:
-	ReloadAssembly (636ms)
-		BeginReloadAssembly (77ms)
+	ReloadAssembly (1007ms)
+		BeginReloadAssembly (116ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (479ms)
-			LoadAssemblies (75ms)
+		EndReloadAssembly (759ms)
+			LoadAssemblies (111ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (117ms)
+			SetupTypeCache (283ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (36ms)
-			SetupLoadedEditorAssemblies (272ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (340ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (25ms)
+				InitializePlatformSupportModulesInManaged (26ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (41ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (154ms)
-				ProcessInitializeOnLoadMethodAttributes (50ms)
+				RefreshPlugins (50ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (199ms)
+				ProcessInitializeOnLoadMethodAttributes (64ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004740 seconds.
+Registered in 0.009057 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.44 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.047 seconds
+- Completed reload, in  1.297 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1048ms)
-		BeginReloadAssembly (125ms)
+	ReloadAssembly (1298ms)
+		BeginReloadAssembly (177ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (22ms)
-		EndReloadAssembly (819ms)
-			LoadAssemblies (83ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (976ms)
+			LoadAssemblies (121ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (217ms)
+			SetupTypeCache (258ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (57ms)
-			SetupLoadedEditorAssemblies (409ms)
+			RebuildScriptCaches (58ms)
+			SetupLoadedEditorAssemblies (502ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (25ms)
-				SetLoadedEditorAssemblies (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (63ms)
-				ProcessInitializeOnLoadAttributes (287ms)
-				ProcessInitializeOnLoadMethodAttributes (27ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				BeforeProcessingInitializeOnLoad (102ms)
+				ProcessInitializeOnLoadAttributes (323ms)
+				ProcessInitializeOnLoadMethodAttributes (34ms)
+				AfterProcessingInitializeOnLoad (23ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (8ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.46 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1931 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 20 unused Assets / (94.9 KB). Loaded Objects now: 2396.
-Memory consumption went from 86.9 MB to 86.8 MB.
-Total: 3.444200 ms (FindLiveObjects: 0.184500 ms CreateObjectMapping: 0.078900 ms MarkObjects: 3.001900 ms  DeleteObjects: 0.178000 ms)
+Unloading 20 unused Assets / (110.9 KB). Loaded Objects now: 2396.
+Memory consumption went from 86.8 MB to 86.7 MB.
+Total: 3.991800 ms (FindLiveObjects: 0.195300 ms CreateObjectMapping: 0.150300 ms MarkObjects: 3.476100 ms  DeleteObjects: 0.168800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -160,19 +157,19 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 608438.288664 seconds.
+  Time since last request: 281576.927695 seconds.
   path: Assets/Sprites/408121.jpg
   artifactKey: Guid(74c4c7cf229416549b9531f60f4cc26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/408121.jpg using Guid(74c4c7cf229416549b9531f60f4cc26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf3c41a6bfb258ef7f499d88fa229cc9') in 0.339221 seconds 
+Start importing Assets/Sprites/408121.jpg using Guid(74c4c7cf229416549b9531f60f4cc26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf3c41a6bfb258ef7f499d88fa229cc9') in 0.391894 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000023 seconds.
+  Time since last request: 0.000025 seconds.
   path: Assets/Sprites/annie-spratt-gM8igOIP5MA-unsplash.jpg
   artifactKey: Guid(790f94c4f9595b74491d58f86bec1e48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/annie-spratt-gM8igOIP5MA-unsplash.jpg using Guid(790f94c4f9595b74491d58f86bec1e48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01756496d666fadb2d488ba32574f987') in 0.476691 seconds 
+Start importing Assets/Sprites/annie-spratt-gM8igOIP5MA-unsplash.jpg using Guid(790f94c4f9595b74491d58f86bec1e48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01756496d666fadb2d488ba32574f987') in 0.473954 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000021 seconds.
+  Time since last request: 0.000043 seconds.
   path: Assets/Sprites/haikeisozai_kouen11.png
   artifactKey: Guid(1c2b6c4b9ccb6de479e2c26139aa47d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/haikeisozai_kouen11.png using Guid(1c2b6c4b9ccb6de479e2c26139aa47d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55f509da9c5a6148cd95ebfed6d9e321') in 0.272603 seconds 
+Start importing Assets/Sprites/haikeisozai_kouen11.png using Guid(1c2b6c4b9ccb6de479e2c26139aa47d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1284d7adf76333de3642737dac73e280') in 0.270419 seconds 
