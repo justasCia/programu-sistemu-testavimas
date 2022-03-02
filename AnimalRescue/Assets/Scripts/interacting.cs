@@ -37,10 +37,12 @@ public class interacting : MonoBehaviour
             }
 
         }
+
         if (Input.GetKeyDown(KeyCode.Q) && equiped)
         {
             Drop();
         }
+
         if (animal != null && equiped)
         {
             animal.position = holdPoint.position;
@@ -70,6 +72,7 @@ public class interacting : MonoBehaviour
     void Drop()
     {
         Debug.Log("Dropped ");
+        animal.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         animal = null;
         equiped = false;
     }
