@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 6796209395905493464}
   - component: {fileID: 6796209395905493445}
   - component: {fileID: 1250042034}
+  - component: {fileID: 2014548325}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -198,8 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6796209395905493447}
-  speed: 10
-  jumpHeight: 3
+  speed: 6
+  jumpHeight: 2
   gravity: -9.8
   groundCheck: {fileID: 6796209397036557192}
   groundDistance: 0.4
@@ -219,6 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6796209395905493446}
+  climbing: 0
+  speed: 3
 --- !u!114 &1250042034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac0c458cd10ea94f96947757fbe619c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animal: {fileID: 0}
   cam: {fileID: 6796209397108793620}
   range: 2.5
   mask:
@@ -238,6 +242,18 @@ MonoBehaviour:
     m_Bits: 256
   holdPoint: {fileID: 2363897905238191104}
   equiped: 0
+--- !u!114 &2014548325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796209395905493465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5770820ce72ca58419a03dcb95b386c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6796209397036557193
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class interacting : MonoBehaviour
 {
     RaycastHit hit;
-    Transform animal;
+    public Transform animal = null;
     public Camera cam;
     public float range = 1f;
     public LayerMask mask;
@@ -13,18 +13,14 @@ public class interacting : MonoBehaviour
 
     public bool equiped = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, mask))
         {
-            animal = hit.transform;
+            //if (animal != null)
+                
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //Debug.Log(hit.transform.name);
@@ -59,6 +55,7 @@ public class interacting : MonoBehaviour
 
     void PickUp()
     {
+        animal = hit.transform;
         animal.position = holdPoint.position;
         Debug.Log("Picked up " + hit.transform.name);
         equiped = true;
@@ -73,6 +70,7 @@ public class interacting : MonoBehaviour
     void Drop()
     {
         Debug.Log("Dropped ");
+        animal = null;
         equiped = false;
     }
 }

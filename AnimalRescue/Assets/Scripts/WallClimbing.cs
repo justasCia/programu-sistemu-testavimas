@@ -6,7 +6,8 @@ public class WallClimbing : MonoBehaviour
 {
     [SerializeField]
     private Transform controller;
-    private bool climbing = false;
+    public bool climbing = false;
+    [SerializeField]
     private float speed = 10f;
     private PlayerMovement playerMovement;
     // Start is called before the first frame update
@@ -20,11 +21,11 @@ public class WallClimbing : MonoBehaviour
     {
         if (climbing && Input.GetKey("w"))
         {
-            controller.transform.position += Vector3.up / speed;
+            controller.transform.position += Vector3.up * speed * Time.deltaTime;
         }
         if (climbing && Input.GetKey("s"))
         {
-            controller.transform.position += Vector3.down / speed;
+            controller.transform.position += Vector3.down * speed * Time.deltaTime;
         }
     }
 
@@ -36,6 +37,7 @@ public class WallClimbing : MonoBehaviour
             climbing = true;
         }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
