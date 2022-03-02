@@ -27,6 +27,7 @@ public class interacting : MonoBehaviour
             animal = hit.transform;
             if (Input.GetKeyDown(KeyCode.E))
             {
+                //Debug.Log(hit.transform.name);
 
                 if (equiped)
                 {
