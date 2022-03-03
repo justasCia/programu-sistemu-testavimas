@@ -479,7 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2411293537657595417}
   m_Layer: 9
-  m_Name: CatArmature
+  m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -732,7 +732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4918902703255550753
 Transform:
   m_ObjectHideFlags: 0
@@ -1834,7 +1834,7 @@ FixedJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6813340948633781255}
-  m_ConnectedBody: {fileID: 7424398190840885254}
+  m_ConnectedBody: {fileID: 6241424118001830613}
   m_ConnectedArticulationBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
