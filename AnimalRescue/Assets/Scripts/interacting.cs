@@ -12,14 +12,19 @@ public class interacting : MonoBehaviour
     public LayerMask mask;
     public Transform holdPoint;
     public float lerpValue = 1f;
+    CharacterController cntrlr;
 
     public bool equiped = false;
 
     public TextMeshProUGUI label;
 
     [Header("Throwing")]
-    public Vector3 throwDir = new Vector3(0f, 0f, 0f);
-    public float throwForce = 5f;
+    public Vector2 throwForce = new Vector2(5f, 5f);
+
+    private void Start()
+    {
+        cntrlr = GetComponent<CharacterController>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -96,7 +101,11 @@ public class interacting : MonoBehaviour
 
         animal.GetComponent<FixedJoint>().connectedBody = animal.Find("Armature").Find("Root").GetComponent<Rigidbody>();
         animal.GetComponent<Rigidbody>().freezeRotation = false;
-        animal.GetComponent<Rigidbody>().AddForce(throwDir * throwForce, ForceMode.Impulse);
+
+        animal.GetComponent<Rigidbody>().velocity = cntrlr.velocity;
+
+        animal.GetComponent<Rigidbody>().AddForce(holdPoint.forward * throwForce.x, ForceMode.Impulse);
+        animal.GetComponent<Rigidbody>().AddForce(holdPoint.up * throwForce.y, ForceMode.Impulse);
         Debug.Log("Dropped ");
         //animal.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         animal = null;
