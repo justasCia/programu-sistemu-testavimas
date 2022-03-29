@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - climbable
+  - Dog
+  - Cat
+  - Hamster
+  - Parrot
   layers:
   - Default
   - TransparentFX

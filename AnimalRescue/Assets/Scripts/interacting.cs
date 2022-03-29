@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class interacting : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class interacting : MonoBehaviour
     public float lerpValue = 1f;
 
     public bool equiped = false;
+
+    public TextMeshProUGUI label;
+
+    [Header("Throwing")]
+    public Vector3 throwDir = new Vector3(0f, 0f, 0f);
+    public float throwForce = 5f;
 
     // Update is called once per frame
     void Update()
@@ -59,6 +66,7 @@ public class interacting : MonoBehaviour
     void PickUp()
     {
         animal = hit.transform;
+        label.text = animal.tag;
 
         animal.SetParent(holdPoint);
         animal.localPosition = Vector3.zero;
@@ -81,12 +89,14 @@ public class interacting : MonoBehaviour
 
     void Drop()
     {
+        label.text = "";
         animal.SetParent(null);
         animal.transform.Find("Armature").gameObject.SetActive(true);
         animal.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
         animal.GetComponent<FixedJoint>().connectedBody = animal.Find("Armature").Find("Root").GetComponent<Rigidbody>();
         animal.GetComponent<Rigidbody>().freezeRotation = false;
+        animal.GetComponent<Rigidbody>().AddForce(throwDir * throwForce, ForceMode.Impulse);
         Debug.Log("Dropped ");
         //animal.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         animal = null;
