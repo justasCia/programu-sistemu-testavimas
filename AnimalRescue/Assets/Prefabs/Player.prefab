@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4067506623988367663}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.56999993, y: -0.06300002, z: 0.93}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.48, y: -0.33, z: 0.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -241,6 +241,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   holdPoint: {fileID: 2363897905238191104}
+  lerpValue: 1
   equiped: 0
 --- !u!114 &2014548325
 MonoBehaviour:

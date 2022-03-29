@@ -1253,8 +1253,8 @@ CapsuleCollider:
   m_Enabled: 1
   m_Radius: 0.2534685
   m_Height: 1.0131116
-  m_Direction: 0
-  m_Center: {x: 0.00000023841858, y: 0.34394312, z: 0}
+  m_Direction: 2
+  m_Center: {x: 0.00000023841858, y: 0, z: 0}
 --- !u!54 &9126782918914958381
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1551,8 +1551,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4962705435584231113}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.49991274, y: 0.49991274, z: 0.50008726, w: 0.50008726}
+  m_LocalPosition: {x: 0, y: -0.369, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1563,7 +1563,7 @@ Transform:
   - {fileID: 5401317928370338731}
   m_Father: {fileID: 3738387901184108989}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 90}
 --- !u!1 &5436352880300580640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,22 +2044,22 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -20
+    limit: -26.634642
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 49.655594
+    limit: -1.3113457
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 14.392975
+    limit: 6.830701
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
-    limit: 11.044634
+    limit: 5.070997
     bounciness: 0
     contactDistance: 0
   m_EnableProjection: 0
@@ -2095,14 +2095,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7051661954584069014}
-  m_LocalRotation: {x: 0.7071068, y: 0.000000053385076, z: 0.70710677, w: -0.00000005338508}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.49991274, y: 0.49991274, z: 0.50008726, w: 0.50008726}
+  m_LocalPosition: {x: -0, y: 0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3738387901184108989}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 90}
 --- !u!137 &4889921429394926275
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
