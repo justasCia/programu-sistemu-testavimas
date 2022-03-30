@@ -1,25 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class interacting : MonoBehaviour
 {
-    RaycastHit hit;
-    public Transform animal = null;
+    [Header("Technical")]
     public Camera cam;
     public float range = 1f;
-    public LayerMask mask;
     public Transform holdPoint;
-    public float lerpValue = 1f;
-    CharacterController cntrlr;
-
     public bool equiped = false;
-
+    public float lerpValue = 1f;
     public TextMeshProUGUI label;
+
+    [Header("Animal")]
+    public Transform animal = null;
+    public LayerMask animalMask;
 
     [Header("Throwing")]
     public Vector2 throwForce = new Vector2(5f, 5f);
+
+    [Header("Interactable objects")]
+    UnityEvent onInteract;
+    public LayerMask interMask;
+
+    RaycastHit hit;
+    CharacterController cntrlr;
 
     private void Start()
     {
@@ -29,15 +36,10 @@ public class interacting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, mask))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, animalMask))
         {
-            //if (animal != null)
-                 
-
             if (Input.GetKeyDown(KeyCode.E))
             {
-                //Debug.Log(hit.transform.name);
-
                 if (equiped)
                 {
                     Switch();
@@ -45,15 +47,22 @@ public class interacting : MonoBehaviour
                 else
                 {
                     PickUp();
-
                 }
             }
-
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && equiped)
         {
             Drop();
+        }
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, interMask))
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Interact(hit);
+
+            }
         }
 
         //if (animal != null && equiped)
@@ -110,5 +119,12 @@ public class interacting : MonoBehaviour
         //animal.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         animal = null;
         equiped = false;
+    }
+
+    void Interact(RaycastHit hit)
+    {
+        //Debug.Log(hit.transform.name);
+        onInteract = hit.transform.GetComponent<Interactable>().onInteract;
+        onInteract.Invoke();
     }
 }

@@ -201,8 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6796209395905493447}
   speed: 6
-  jumpHeight: 2
-  gravity: -9.8
+  jumpHeight: 1.5
+  gravity: -15
   groundCheck: {fileID: 6796209397036557192}
   groundDistance: 0.4
   groundMask:
@@ -235,17 +235,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac0c458cd10ea94f96947757fbe619c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animal: {fileID: 0}
   cam: {fileID: 6796209397108793620}
   range: 2.5
-  mask:
+  holdPoint: {fileID: 2363897905238191104}
+  equiped: 0
+  lerpValue: 1
+  label: {fileID: 0}
+  animal: {fileID: 0}
+  animalMask:
     serializedVersion: 2
     m_Bits: 256
-  holdPoint: {fileID: 2363897905238191104}
-  lerpValue: 1
-  equiped: 0
-  label: {fileID: 0}
   throwForce: {x: 5, y: 6}
+  interMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &2014548325
 MonoBehaviour:
   m_ObjectHideFlags: 0

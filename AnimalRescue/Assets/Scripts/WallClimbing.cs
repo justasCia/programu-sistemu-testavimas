@@ -14,6 +14,7 @@ public class WallClimbing : MonoBehaviour
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        if (playerMovement == null) Debug.Log("nerado");
     }
 
     // Update is called once per frame

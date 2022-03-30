@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * playerX + transform.forward * playerZ;
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move.normalized * speed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
