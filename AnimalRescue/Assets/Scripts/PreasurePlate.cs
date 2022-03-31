@@ -14,21 +14,37 @@ public class PreasurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Rigidbody>() != null || other.GetComponent<CharacterController>() != null)
+        //Debug.Log(other.gameObject.layer);
+        if (LayerMask.NameToLayer("Player") == other.gameObject.layer ||
+            LayerMask.NameToLayer("Animal") == other.gameObject.layer)
+
         {
-            isPressed = true;
-            anim.SetBool("Pressed", isPressed);
-            pressed.Invoke();
+            Activate();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Rigidbody>() != null)
+
+        if (LayerMask.NameToLayer("Player") == other.gameObject.layer ||
+            LayerMask.NameToLayer("Animal") == other.gameObject.layer)
         {
-            isPressed = false;
-            anim.SetBool("Pressed", isPressed);
-            unpressed.Invoke();
+            Disactivate();
         }
+    }
+
+    void Activate()
+    {
+        isPressed = true;
+        anim.SetBool("Pressed", isPressed);
+        pressed.Invoke();
+    }
+    
+    void Disactivate()
+    {
+        isPressed = false;
+        anim.SetBool("Pressed", isPressed);
+        unpressed.Invoke();
+
     }
 }

@@ -144,7 +144,8 @@ GameObject:
   - component: {fileID: 1250042034}
   - component: {fileID: 2014548325}
   - component: {fileID: 475046827848503898}
-  m_Layer: 0
+  - component: {fileID: 556503239}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -184,7 +185,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.01
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6796209395905493464
@@ -273,6 +274,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c617ecd7be55bf4e93bbfe99622568d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &556503239
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796209395905493465}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.000000059604645, z: 0}
 --- !u!1 &6796209397036557193
 GameObject:
   m_ObjectHideFlags: 0

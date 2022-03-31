@@ -2074,7 +2074,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23998
+  m_Name: pb_Mesh24010
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2243,10 +2243,6 @@ PrefabInstance:
       propertyPath: label
       value: 
       objectReference: {fileID: 2063358998}
-    - target: {fileID: 1250042034, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6796209395905493446, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3076,7 +3072,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23968
+  m_Name: pb_Mesh23980
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3831,10 +3827,6 @@ PrefabInstance:
       propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1033803518}
-    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
-      propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
 --- !u!1001 &7094210076490017572
@@ -3866,7 +3858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870430246941100081, guid: 8a7ea092f150c1848949159f17d5f08e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.94
+      value: 2.197
       objectReference: {fileID: 0}
     - target: {fileID: 3870430246941100081, guid: 8a7ea092f150c1848949159f17d5f08e, type: 3}
       propertyPath: m_LocalRotation.w
