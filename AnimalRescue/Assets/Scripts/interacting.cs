@@ -12,7 +12,7 @@ public class interacting : MonoBehaviour
     public Transform holdPoint;
     public bool equiped = false;
     public float lerpValue = 1f;
-    public TextMeshProUGUI label;
+    //public TextMeshProUGUI label;
 
     [Header("Animal")]
     public Transform animal = null;
@@ -80,7 +80,7 @@ public class interacting : MonoBehaviour
     void PickUp()
     {
         animal = hit.transform;
-        label.text = animal.tag;
+        //label.text = animal.tag;
 
         animal.SetParent(holdPoint);
         animal.localPosition = Vector3.zero;
@@ -103,7 +103,7 @@ public class interacting : MonoBehaviour
 
     void Drop()
     {
-        label.text = "";
+        //label.text = "";
         animal.SetParent(null);
         animal.transform.Find("Armature").gameObject.SetActive(true);
         animal.gameObject.GetComponent<Rigidbody>().isKinematic = false;

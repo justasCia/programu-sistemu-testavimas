@@ -12,6 +12,8 @@ public class PreasurePlate : MonoBehaviour
 
     public bool isPressed = false;
 
+    List<Collider> ObjOnPlate = new List<Collider>();
+
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(other.gameObject.layer);
@@ -19,6 +21,7 @@ public class PreasurePlate : MonoBehaviour
             LayerMask.NameToLayer("Animal") == other.gameObject.layer)
 
         {
+            ObjOnPlate.Add(other);
             Activate();
         }
     }
@@ -29,7 +32,9 @@ public class PreasurePlate : MonoBehaviour
         if (LayerMask.NameToLayer("Player") == other.gameObject.layer ||
             LayerMask.NameToLayer("Animal") == other.gameObject.layer)
         {
-            Disactivate();
+            ObjOnPlate.Remove(other);
+            if (ObjOnPlate.Count <= 0)
+                Disactivate();
         }
     }
 
