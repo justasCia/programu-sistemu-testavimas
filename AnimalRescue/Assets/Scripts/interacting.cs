@@ -1,11 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 
 public class interacting : MonoBehaviour
 {
+    [Serializable] 
+    private class CursorData
+    {
+        public Sprite image;
+        public Vector3 scale;
+    }
+
     [Header("Technical")]
     public Camera cam;
     public float range = 1f;
@@ -25,6 +34,11 @@ public class interacting : MonoBehaviour
     UnityEvent onInteract;
     public LayerMask interMask;
 
+    [Header("Cursor")]
+    public Image cursor;
+    [SerializeField] CursorData defaultCur; 
+    [SerializeField] CursorData interactionCur;
+
     RaycastHit hit;
     CharacterController cntrlr;
 
@@ -38,6 +52,8 @@ public class interacting : MonoBehaviour
     {
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, animalMask))
         {
+            cursor.sprite = interactionCur.image;
+            cursor.rectTransform.localScale = interactionCur.scale;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (equiped)
@@ -50,21 +66,26 @@ public class interacting : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Q) && equiped)
+        else if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, interMask))
         {
-            Drop();
-        }
-
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, interMask))
-        {
-            if (Input.GetMouseButtonDown(0))
+            cursor.sprite = interactionCur.image;
+            cursor.rectTransform.localScale = interactionCur.scale;
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Interact(hit);
 
             }
         }
+        else
+        {
+            cursor.sprite = defaultCur.image;
+            cursor.rectTransform.localScale = defaultCur.scale;
+        }
 
+        if (Input.GetKeyDown(KeyCode.Q) && equiped)
+        {
+            Drop();
+        }
         //if (animal != null && equiped)
         //{
         //    animal.position = Vector3.Lerp(animal.position, holdPoint.position, lerpValue);
