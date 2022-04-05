@@ -32,6 +32,9 @@ public class PowerManager : MonoBehaviour
             case "Cat":
                 gameObject.GetComponent<WallClimbing>().enabled = true;
                 break;
+            case "Rat":
+                transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                break;
         }
     }
 
@@ -39,5 +42,6 @@ public class PowerManager : MonoBehaviour
     {
         gameObject.GetComponent<PlayerMovement>().speed = 6f;
         gameObject.GetComponent<WallClimbing>().enabled = false;
+        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
 }
