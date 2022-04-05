@@ -21,7 +21,17 @@ ModelImporter:
   - first:
       74: 7369953533816513705
     second: RatArmature|Rat_Walk
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey
+    second: {fileID: 2100000, guid: ce282acc323d03341909bc87cbd2ad87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pink
+    second: {fileID: 2100000, guid: 6ada05f1ff9170b41bb121aed7ff2ba7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

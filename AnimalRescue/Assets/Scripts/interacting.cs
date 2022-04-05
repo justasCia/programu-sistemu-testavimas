@@ -21,6 +21,9 @@ public class interacting : MonoBehaviour
     public Transform holdPoint;
     public bool equiped = false;
     public float lerpValue = 1f;
+    
+    //public UnityEvent getPower;
+    //public UnityEvent losePower;
     //public TextMeshProUGUI label;
 
     [Header("Animal")]
@@ -111,8 +114,10 @@ public class interacting : MonoBehaviour
         animal.GetComponent<Rigidbody>().freezeRotation = true;
         animal.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-        animal.Find("HoldPoint").position = holdPoint.position;
+        animal.position = holdPoint.position;
         Debug.Log("Picked up " + hit.transform.name);
+        //getPower.Invoke();
+        GetComponent<PowerManager>().GetPower(animal.name);
         equiped = true;
     }
 
@@ -125,6 +130,8 @@ public class interacting : MonoBehaviour
     void Drop()
     {
         //label.text = "";
+        //losePower.Invoke();
+        GetComponent<PowerManager>().LosePower();
         animal.SetParent(null);
         animal.transform.Find("Armature").gameObject.SetActive(true);
         animal.gameObject.GetComponent<Rigidbody>().isKinematic = false;

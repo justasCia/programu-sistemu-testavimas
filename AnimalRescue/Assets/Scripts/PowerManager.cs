@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerManager : MonoBehaviour
 {
-    Transform animal = null;
+    //Transform animal = null;
 
     private void Start() 
     {
@@ -13,18 +13,15 @@ public class PowerManager : MonoBehaviour
 
     private void Update()
     {
-        animal = gameObject.GetComponent<interacting>().animal;
+        //animal = gameObject.GetComponent<interacting>().animal;
 
-        if (animal != null)
-            GetPower();
-        else
-            LosePower();
+        
 
     }
 
-    void GetPower()
+    public void GetPower(string animal)
     {
-        switch (animal.name)
+        switch (animal)
         {
             case "Dog":
                 gameObject.GetComponent<PlayerMovement>().speed = 10f;
@@ -33,15 +30,17 @@ public class PowerManager : MonoBehaviour
                 gameObject.GetComponent<WallClimbing>().enabled = true;
                 break;
             case "Rat":
-                transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                //transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.25f, 0.25f, 0.25f), 0.1f);
+                transform.localScale =  new Vector3(0.25f, 0.25f, 0.25f);
                 break;
         }
     }
 
-    void LosePower()
+    public void LosePower()
     {
         gameObject.GetComponent<PlayerMovement>().speed = 6f;
         gameObject.GetComponent<WallClimbing>().enabled = false;
-        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        //transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1f, 1f, 1f), 0.1f);
+        transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }
