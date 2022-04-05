@@ -21,9 +21,19 @@ public class interacting : MonoBehaviour
     public Transform holdPoint;
     public bool equiped = false;
     public float lerpValue = 1f;
+<<<<<<< Updated upstream
     
     //public UnityEvent getPower;
     //public UnityEvent losePower;
+=======
+
+   
+    private InventoryItemBase mCurrentItem = null;
+    [SerializeField]
+    private InteractableItemBase mInteractItem = null;
+    public Hotbar Hotbar;
+    public Inventory Inventory;
+>>>>>>> Stashed changes
     //public TextMeshProUGUI label;
 
     [Header("Animal")]
@@ -48,6 +58,7 @@ public class interacting : MonoBehaviour
     private void Start()
     {
         cntrlr = GetComponent<CharacterController>();
+        Inventory.ItemUsed += Inventory_ItemUsed;
     }
 
     // Update is called once per frame
@@ -103,22 +114,30 @@ public class interacting : MonoBehaviour
 
     void PickUp()
     {
-        animal = hit.transform;
+        //animal = hit.transform;
         //label.text = animal.tag;
 
-        animal.SetParent(holdPoint);
-        animal.localPosition = Vector3.zero;
-        animal.localRotation = Quaternion.Euler(Vector3.zero);
-        animal.transform.Find("Armature").gameObject.SetActive(false);
+        //animal.SetParent(holdPoint);
+        //animal.localPosition = Vector3.zero;
+        //animal.localRotation = Quaternion.Euler(Vector3.zero);
+        //animal.transform.Find("Armature").gameObject.SetActive(false);
 
-        animal.GetComponent<Rigidbody>().freezeRotation = true;
-        animal.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        //animal.GetComponent<Rigidbody>().freezeRotation = true;
+        //animal.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
+<<<<<<< Updated upstream
         animal.position = holdPoint.position;
         Debug.Log("Picked up " + hit.transform.name);
         //getPower.Invoke();
         GetComponent<PowerManager>().GetPower(animal.name);
         equiped = true;
+=======
+        //animal.Find("HoldPoint").position = holdPoint.position;
+        Debug.Log("Picked up " + hit.transform.name);
+        //equiped = true;
+
+        InteractWithItem();
+>>>>>>> Stashed changes
     }
 
     void Switch()
@@ -154,5 +173,79 @@ public class interacting : MonoBehaviour
         //Debug.Log(hit.transform.name);
         onInteract = hit.transform.GetComponent<Interactable>().onInteract;
         onInteract.Invoke();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        TryInteraction(other);
+    }
+
+    private void TryInteraction(Collider other)
+    {
+        InteractableItemBase item = other.GetComponent<InteractableItemBase>();
+
+        if (item != null)
+        {
+            if (item.CanInteract(other))
+            {
+                mInteractItem = item;
+
+                Hotbar.OpenMessagePanel(mInteractItem);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        InteractableItemBase item = other.GetComponent<InteractableItemBase>();
+        if (item != null)
+        {
+            Hotbar.CloseMessagePanel();
+            mInteractItem = null;
+        }
+    }
+
+    public void InteractWithItem()
+    {
+        if (mInteractItem != null)
+        {
+            mInteractItem.OnInteract();
+
+            if (mInteractItem is InventoryItemBase)
+            {
+                InventoryItemBase inventoryItem = mInteractItem as InventoryItemBase;
+                Inventory.AddItem(inventoryItem);
+                inventoryItem.OnPickup();
+
+                if (inventoryItem.UseItemAfterPickup)
+                {
+                    Inventory.UseItem(inventoryItem);
+                }
+                Hotbar.CloseMessagePanel();
+                mInteractItem = null;
+            }
+        }
+    }
+
+    private void SetItemActive(InventoryItemBase item, bool active)
+    {
+        GameObject currentItem = (item as MonoBehaviour).gameObject;
+        currentItem.SetActive(active);
+        //currentItem.transform.parent = active ? Hand.transform : null;
+    }
+    private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
+    {
+        // If the player carries an item, un-use it (remove from player's hand)
+        if (mCurrentItem != null)
+        {
+            SetItemActive(mCurrentItem, false);
+        }
+
+        InventoryItemBase item = e.Item;
+
+        // Use item (put it to hand of the player)
+        SetItemActive(item, true);
+
+        mCurrentItem = e.Item;
     }
 }
