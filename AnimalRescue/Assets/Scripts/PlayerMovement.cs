@@ -133,33 +133,33 @@ public class PlayerMovement : MonoBehaviour
 
     private InteractableItemBase mInteractItem = null;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        TryInteraction(other);
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    TryInteraction(other);
+    //}
 
-    private void TryInteraction(Collider other)
-    {
-        InteractableItemBase item = other.GetComponent<InteractableItemBase>();
+    //private void TryInteraction(Collider other)
+    //{
+    //    InteractableItemBase item = other.GetComponent<InteractableItemBase>();
 
-        if (item != null)
-        {
-            if (item.CanInteract(other))
-            {
-                mInteractItem = item;
+    //    if (item != null)
+    //    {
+    //        if (item.CanInteract(other))
+    //        {
+    //            mInteractItem = item;
 
-                Hud.OpenMessagePanel(mInteractItem);
-            }
-        }
-    }
+    //            Hud.OpenMessagePanel(mInteractItem);
+    //        }
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        InteractableItemBase item = other.GetComponent<InteractableItemBase>();
-        if (item != null)
-        {
-            Hud.CloseMessagePanel();
-            mInteractItem = null;
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    InteractableItemBase item = other.GetComponent<InteractableItemBase>();
+    //    if (item != null)
+    //    {
+    //        Hud.CloseMessagePanel();
+    //        mInteractItem = null;
+    //    }
+    //}
 }

@@ -14,7 +14,7 @@ public class InteractableItemBase : MonoBehaviour
     {
     }
 
-    public virtual bool CanInteract(Collider other)
+    public virtual bool CanInteract()
     {
         return true;
     }
@@ -47,7 +47,7 @@ public class InventoryItemBase : InteractableItemBase
 
     public virtual void OnPickup()
     {
-        Destroy(gameObject.GetComponent<Rigidbody>());
+        //Destroy(gameObject.GetComponent<Rigidbody>());
         gameObject.SetActive(false);
 
     }

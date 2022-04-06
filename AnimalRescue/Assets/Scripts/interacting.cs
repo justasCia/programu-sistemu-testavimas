@@ -21,20 +21,15 @@ public class interacting : MonoBehaviour
     public Transform holdPoint;
     public bool equiped = false;
     public float lerpValue = 1f;
-<<<<<<< Updated upstream
-    
-    //public UnityEvent getPower;
-    //public UnityEvent losePower;
-=======
-
+    public UnityEvent getPower;
+    public UnityEvent losePower;
    
     private InventoryItemBase mCurrentItem = null;
     [SerializeField]
     private InteractableItemBase mInteractItem = null;
     public Hotbar Hotbar;
     public Inventory Inventory;
->>>>>>> Stashed changes
-    //public TextMeshProUGUI label;
+    public TextMeshProUGUI label;
 
     [Header("Animal")]
     public Transform animal = null;
@@ -68,6 +63,7 @@ public class interacting : MonoBehaviour
         {
             cursor.sprite = interactionCur.image;
             cursor.rectTransform.localScale = interactionCur.scale;
+            TryInteraction(hit.transform);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (equiped)
@@ -94,6 +90,7 @@ public class interacting : MonoBehaviour
         {
             cursor.sprite = defaultCur.image;
             cursor.rectTransform.localScale = defaultCur.scale;
+            Hotbar.CloseMessagePanel();
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && equiped)
@@ -125,19 +122,18 @@ public class interacting : MonoBehaviour
         //animal.GetComponent<Rigidbody>().freezeRotation = true;
         //animal.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-<<<<<<< Updated upstream
-        animal.position = holdPoint.position;
+        //animal.position = holdPoint.position;
         Debug.Log("Picked up " + hit.transform.name);
         //getPower.Invoke();
-        GetComponent<PowerManager>().GetPower(animal.name);
-        equiped = true;
-=======
+        //GetComponent<PowerManager>().GetPower(animal.name);
+        //equiped = true;
+
         //animal.Find("HoldPoint").position = holdPoint.position;
-        Debug.Log("Picked up " + hit.transform.name);
+        //Debug.Log("Picked up " + hit.transform.name);
         //equiped = true;
 
         InteractWithItem();
->>>>>>> Stashed changes
+
     }
 
     void Switch()
@@ -175,35 +171,34 @@ public class interacting : MonoBehaviour
         onInteract.Invoke();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        TryInteraction(other);
-    }
-
-    private void TryInteraction(Collider other)
+    private void TryInteraction(Transform other)
     {
         InteractableItemBase item = other.GetComponent<InteractableItemBase>();
 
         if (item != null)
         {
-            if (item.CanInteract(other))
+            if (item.CanInteract())
             {
                 mInteractItem = item;
-
                 Hotbar.OpenMessagePanel(mInteractItem);
             }
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        InteractableItemBase item = other.GetComponent<InteractableItemBase>();
-        if (item != null)
+        else
         {
             Hotbar.CloseMessagePanel();
             mInteractItem = null;
         }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    InteractableItemBase item = other.GetComponent<InteractableItemBase>();
+    //    if (item != null)
+    //    {
+    //        Hotbar.CloseMessagePanel();
+    //        mInteractItem = null;
+    //    }
+    //}
 
     public void InteractWithItem()
     {
