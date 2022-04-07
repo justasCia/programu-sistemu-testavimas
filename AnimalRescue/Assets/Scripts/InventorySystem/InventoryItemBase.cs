@@ -8,6 +8,7 @@ public class InteractableItemBase : MonoBehaviour
     public string Name;
     public Sprite Image;
     public string InteractText = "Press E to pickup the item";
+    public Transform holdPoint;
 
 
     public virtual void OnInteract()
@@ -29,8 +30,16 @@ public class InventoryItemBase : InteractableItemBase
 
     public virtual void OnUse()
     {
-        transform.localPosition = PickPosition;
-        transform.localEulerAngles = PickRotation;
+        transform.gameObject.SetActive(true);
+        transform.SetParent(holdPoint);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.Find("Armature").gameObject.SetActive(false);
+
+        transform.GetComponent<Rigidbody>().freezeRotation = true;
+        transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+        transform.position = holdPoint.position;
     }
 
     public virtual void OnDrop()
@@ -51,10 +60,6 @@ public class InventoryItemBase : InteractableItemBase
         gameObject.SetActive(false);
 
     }
-
-    public Vector3 PickPosition;
-
-    public Vector3 PickRotation;
 
     public Vector3 DropRotation;
 

@@ -123,7 +123,7 @@ public class interacting : MonoBehaviour
         //animal.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
         //animal.position = holdPoint.position;
-        Debug.Log("Picked up " + hit.transform.name);
+        //Debug.Log("Picked up " + hit.transform.name);
         //getPower.Invoke();
         //GetComponent<PowerManager>().GetPower(animal.name);
         //equiped = true;
@@ -133,7 +133,6 @@ public class interacting : MonoBehaviour
         //equiped = true;
 
         InteractWithItem();
-
     }
 
     void Switch()
@@ -183,23 +182,7 @@ public class interacting : MonoBehaviour
                 Hotbar.OpenMessagePanel(mInteractItem);
             }
         }
-        else
-        {
-            Hotbar.CloseMessagePanel();
-            mInteractItem = null;
-        }
     }
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    InteractableItemBase item = other.GetComponent<InteractableItemBase>();
-    //    if (item != null)
-    //    {
-    //        Hotbar.CloseMessagePanel();
-    //        mInteractItem = null;
-    //    }
-    //}
-
     public void InteractWithItem()
     {
         if (mInteractItem != null)
@@ -226,13 +209,15 @@ public class interacting : MonoBehaviour
     {
         GameObject currentItem = (item as MonoBehaviour).gameObject;
         currentItem.SetActive(active);
-        //currentItem.transform.parent = active ? Hand.transform : null;
+        currentItem.transform.parent = active ? holdPoint.transform : null;
     }
     private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
     {
+        Debug.Log("aaaa");
         // If the player carries an item, un-use it (remove from player's hand)
         if (mCurrentItem != null)
         {
+            Debug.Log(mCurrentItem);
             SetItemActive(mCurrentItem, false);
         }
 

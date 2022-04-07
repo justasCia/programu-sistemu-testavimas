@@ -31,6 +31,7 @@ public class Hotbar : MonoBehaviour
             Transform textTransform = slot.GetChild(0).GetChild(1);
             Image image = imageTransform.GetComponent<Image>();
             TextMeshProUGUI txtCount = textTransform.GetComponent<TextMeshProUGUI>();
+            ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
 
             if (index == e.Item.Slot.Id)
             {
@@ -42,6 +43,8 @@ public class Hotbar : MonoBehaviour
                     txtCount.text = itemCount.ToString();
                 else
                     txtCount.text = "";
+
+                itemDragHandler.Item = e.Item;
 
                 break;
             }

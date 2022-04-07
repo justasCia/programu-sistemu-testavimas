@@ -38,7 +38,7 @@ public class HotbarButton : MonoBehaviour
         {
             ItemDragHandler dragHandler =
             gameObject.transform.Find("ItemImage").GetComponent<ItemDragHandler>();
-
+            Debug.Log(dragHandler);
             return dragHandler.Item;
         }
     }
@@ -46,7 +46,7 @@ public class HotbarButton : MonoBehaviour
     public void OnItemClicked()
     {
         InventoryItemBase item = AttachedItem;
-
+        
         if (item != null)
         {
             Debug.Log(item.Name);
