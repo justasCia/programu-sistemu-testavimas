@@ -8,6 +8,7 @@ public class HotbarButton : MonoBehaviour
 {
     public Inventory inventory;
     public KeyCode keyCode;
+    public interacting interacting;
     private Button button;
 
     private void Awake()
@@ -51,6 +52,8 @@ public class HotbarButton : MonoBehaviour
         {
             Debug.Log(item.Name);
             inventory.UseItem(item);
+            interacting.equiped = true;
+            interacting.animal = item.transform;
         }
     }
 }

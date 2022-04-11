@@ -25,7 +25,6 @@ public class interacting : MonoBehaviour
     public UnityEvent losePower;
    
     private InventoryItemBase mCurrentItem = null;
-    [SerializeField]
     private InteractableItemBase mInteractItem = null;
     public Hotbar Hotbar;
     public Inventory Inventory;
@@ -54,6 +53,7 @@ public class interacting : MonoBehaviour
     {
         cntrlr = GetComponent<CharacterController>();
         Inventory.ItemUsed += Inventory_ItemUsed;
+        Inventory.ItemRemoved += Inventory_ItemRemoved;
     }
 
     // Update is called once per frame
@@ -66,14 +66,7 @@ public class interacting : MonoBehaviour
             TryInteraction(hit.transform);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (equiped)
-                {
-                    Switch();
-                }
-                else
-                {
-                    PickUp();
-                }
+                PickUp();
             }
         }
         else if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range, interMask))
@@ -83,7 +76,6 @@ public class interacting : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Interact(hit);
-
             }
         }
         else
@@ -93,7 +85,7 @@ public class interacting : MonoBehaviour
             Hotbar.CloseMessagePanel();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && equiped)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Drop();
         }
@@ -135,11 +127,11 @@ public class interacting : MonoBehaviour
         InteractWithItem();
     }
 
-    void Switch()
-    {
-        Drop();
-        PickUp();
-    }
+    //void Switch()
+    //{
+    //    Drop();
+    //    PickUp();
+    //}
 
     void Drop()
     {
@@ -161,6 +153,8 @@ public class interacting : MonoBehaviour
         //animal.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         animal = null;
         equiped = false;
+        mInteractItem = null;
+        Inventory.RemoveItem(mCurrentItem);
     }
 
     void Interact(RaycastHit hit)
@@ -213,11 +207,9 @@ public class interacting : MonoBehaviour
     }
     private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
     {
-        Debug.Log("aaaa");
         // If the player carries an item, un-use it (remove from player's hand)
         if (mCurrentItem != null)
         {
-            Debug.Log(mCurrentItem);
             SetItemActive(mCurrentItem, false);
         }
 
@@ -227,5 +219,18 @@ public class interacting : MonoBehaviour
         SetItemActive(item, true);
 
         mCurrentItem = e.Item;
+    }
+
+    private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
+    {
+        InventoryItemBase item = e.Item;
+
+        GameObject goItem = (item as MonoBehaviour).gameObject;
+        goItem.SetActive(true);
+        goItem.transform.parent = null;
+
+        if (item == mCurrentItem)
+            mCurrentItem = null;
+
     }
 }

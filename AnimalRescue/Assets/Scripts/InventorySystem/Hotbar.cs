@@ -64,7 +64,7 @@ public class Hotbar : MonoBehaviour
             Transform textTransform = slot.GetChild(0).GetChild(1);
 
             Image image = imageTransform.GetComponent<Image>();
-            Text txtCount = textTransform.GetComponent<Text>();
+            TextMeshProUGUI txtCount = textTransform.GetComponent<TextMeshProUGUI>();
 
 
             // Found the slot to remove from
