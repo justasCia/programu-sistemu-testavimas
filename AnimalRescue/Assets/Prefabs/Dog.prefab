@@ -1299,12 +1299,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eae4ce1c5d400547880cc7326c1029b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: DOG
-  Image: {fileID: 21300000, guid: 1c2b6c4b9ccb6de479e2c26139aa47d5, type: 3}
+  Name: Dog
+  Image: {fileID: 21300000, guid: 8213ab35e37b92743ab070ae1e2ee125, type: 3}
   InteractText: Press E to pickup
   holdPoint: {fileID: 0}
-  DropRotation: {x: 0, y: 0, z: 0}
+  throwForce: {x: 5, y: 5}
+  cntrlr: {fileID: 0}
   UseItemAfterPickup: 0
+  interacting: {fileID: 0}
+  getPower:
+    m_PersistentCalls:
+      m_Calls: []
+  losePower:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4356032386153397275
 GameObject:
   m_ObjectHideFlags: 0

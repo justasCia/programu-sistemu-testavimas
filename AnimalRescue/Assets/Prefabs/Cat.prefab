@@ -1856,7 +1856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Cat
-  Image: {fileID: 21300000, guid: 3c1c749c04d124c4580f64e99826d999, type: 3}
+  Image: {fileID: 21300000, guid: eb1b28f2e98f9604daaec6235d948804, type: 3}
   InteractText: Press E to pickup
   holdPoint: {fileID: 0}
   throwForce: {x: 5, y: 5}

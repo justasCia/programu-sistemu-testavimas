@@ -137,7 +137,7 @@ public class interacting : MonoBehaviour
     {
         //label.text = "";
         //losePower.Invoke();
-        //GetComponent<PowerManager>().LosePower();
+        GetComponent<PowerManager>().LosePower();
         //animal.SetParent(null);
         //animal.transform.Find("Armature").gameObject.SetActive(true);
         //animal.gameObject.GetComponent<Rigidbody>().isKinematic = false;

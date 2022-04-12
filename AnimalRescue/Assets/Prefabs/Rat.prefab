@@ -974,6 +974,7 @@ GameObject:
   - component: {fileID: 4868535939697687808}
   - component: {fileID: 4868535939697687809}
   - component: {fileID: 4303788300961294852}
+  - component: {fileID: 343662326698562256}
   m_Layer: 8
   m_Name: Rat
   m_TagString: Rat
@@ -1043,6 +1044,32 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &343662326698562256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5715607193038878918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6d7bf0824d27548b9be9c6e712e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Rat
+  Image: {fileID: 21300000, guid: a8140405e9f7709408ce039d12378092, type: 3}
+  InteractText: Press E to pickup the item
+  holdPoint: {fileID: 0}
+  throwForce: {x: 5, y: 5}
+  cntrlr: {fileID: 0}
+  UseItemAfterPickup: 0
+  interacting: {fileID: 0}
+  getPower:
+    m_PersistentCalls:
+      m_Calls: []
+  losePower:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5848781709540281390
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class InventoryItemBase : InteractableItemBase
 
     public virtual void OnUse()
     {
-        losePower.Invoke();
+        //losePower.Invoke();
         GameObject.FindWithTag("Player").GetComponent<PowerManager>().LosePower();
 
         transform.gameObject.SetActive(true);
@@ -45,13 +45,13 @@ public class InventoryItemBase : InteractableItemBase
 
         transform.position = holdPoint.position;
 
-        getPower.Invoke();
+        //getPower.Invoke();
         GameObject.FindWithTag("Player").GetComponent<PowerManager>().GetPower(transform.tag);
     }
 
     public virtual void OnDrop()
     {
-        losePower.Invoke();
+        //losePower.Invoke();
         GameObject.FindWithTag("Player").GetComponent<PowerManager>().LosePower();
         transform.SetParent(null);
         transform.Find("Armature").gameObject.SetActive(true);
