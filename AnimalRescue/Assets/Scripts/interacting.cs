@@ -85,7 +85,7 @@ public class interacting : MonoBehaviour
             Hotbar.CloseMessagePanel();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (mCurrentItem != null && Input.GetKeyDown(KeyCode.Q))
         {
             Drop();
         }
@@ -137,24 +137,24 @@ public class interacting : MonoBehaviour
     {
         //label.text = "";
         //losePower.Invoke();
-        GetComponent<PowerManager>().LosePower();
-        animal.SetParent(null);
-        animal.transform.Find("Armature").gameObject.SetActive(true);
-        animal.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        //GetComponent<PowerManager>().LosePower();
+        //animal.SetParent(null);
+        //animal.transform.Find("Armature").gameObject.SetActive(true);
+        //animal.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
-        animal.GetComponent<FixedJoint>().connectedBody = animal.Find("Armature").Find("Root").GetComponent<Rigidbody>();
-        animal.GetComponent<Rigidbody>().freezeRotation = false;
+        //animal.GetComponent<FixedJoint>().connectedBody = animal.Find("Armature").Find("Root").GetComponent<Rigidbody>();
+        //animal.GetComponent<Rigidbody>().freezeRotation = false;
 
-        animal.GetComponent<Rigidbody>().velocity = cntrlr.velocity;
+        //animal.GetComponent<Rigidbody>().velocity = cntrlr.velocity;
 
-        animal.GetComponent<Rigidbody>().AddForce(holdPoint.forward * throwForce.x, ForceMode.Impulse);
-        animal.GetComponent<Rigidbody>().AddForce(holdPoint.up * throwForce.y, ForceMode.Impulse);
-        Debug.Log("Dropped ");
+        //animal.GetComponent<Rigidbody>().AddForce(holdPoint.forward * throwForce.x, ForceMode.Impulse);
+        //animal.GetComponent<Rigidbody>().AddForce(holdPoint.up * throwForce.y, ForceMode.Impulse);
+        //Debug.Log("Dropped ");
         //animal.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        animal = null;
-        equiped = false;
-        mInteractItem = null;
+        //animal = null;
+        //equiped = false;
         Inventory.RemoveItem(mCurrentItem);
+        
     }
 
     void Interact(RaycastHit hit)
@@ -228,9 +228,14 @@ public class interacting : MonoBehaviour
         GameObject goItem = (item as MonoBehaviour).gameObject;
         goItem.SetActive(true);
         goItem.transform.parent = null;
-
+        Debug.Log("Inventory_ItemRemoved metodas:" + goItem.name);
         if (item == mCurrentItem)
+        {
             mCurrentItem = null;
+            item.OnDrop();
+        }
+            
+        
 
     }
 }

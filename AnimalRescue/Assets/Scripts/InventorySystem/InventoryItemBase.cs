@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractableItemBase : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class InventoryItemBase : InteractableItemBase
 
     public virtual void OnUse()
     {
+        losePower.Invoke();
+        GameObject.FindWithTag("Player").GetComponent<PowerManager>().LosePower();
+
         transform.gameObject.SetActive(true);
         transform.SetParent(holdPoint);
         transform.localPosition = Vector3.zero;
@@ -40,30 +44,44 @@ public class InventoryItemBase : InteractableItemBase
         transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
         transform.position = holdPoint.position;
+
+        getPower.Invoke();
+        GameObject.FindWithTag("Player").GetComponent<PowerManager>().GetPower(transform.tag);
     }
 
     public virtual void OnDrop()
     {
-        RaycastHit hit = new RaycastHit();
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 1000))
-        {
-            gameObject.SetActive(true);
-            gameObject.transform.position = hit.point;
-            gameObject.transform.eulerAngles = DropRotation;
-        }
+        losePower.Invoke();
+        GameObject.FindWithTag("Player").GetComponent<PowerManager>().LosePower();
+        transform.SetParent(null);
+        transform.Find("Armature").gameObject.SetActive(true);
+        transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        transform.GetComponent<FixedJoint>().connectedBody = transform.Find("Armature").Find("Root").GetComponent<Rigidbody>();
+        transform.GetComponent<Rigidbody>().freezeRotation = false;
+
+        transform.GetComponent<Rigidbody>().velocity = cntrlr.velocity;
+
+        transform.GetComponent<Rigidbody>().AddForce(holdPoint.forward * throwForce.x, ForceMode.Impulse);
+        transform.GetComponent<Rigidbody>().AddForce(holdPoint.up * throwForce.y, ForceMode.Impulse);
+
+        interacting.animal = null;
+        interacting.equiped = false;
     }
 
     public virtual void OnPickup()
     {
-        //Destroy(gameObject.GetComponent<Rigidbody>());
         gameObject.SetActive(false);
 
     }
 
-    public Vector3 DropRotation;
+    [Header("Throwing")]
+    public Vector2 throwForce = new Vector2(5f, 5f);
 
+    public CharacterController cntrlr;
     public bool UseItemAfterPickup = true;
+    public interacting interacting;
 
-
+    public UnityEvent getPower;
+    public UnityEvent losePower;
 }

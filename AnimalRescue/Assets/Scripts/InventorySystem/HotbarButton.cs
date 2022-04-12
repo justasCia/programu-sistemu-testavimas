@@ -39,7 +39,6 @@ public class HotbarButton : MonoBehaviour
         {
             ItemDragHandler dragHandler =
             gameObject.transform.Find("ItemImage").GetComponent<ItemDragHandler>();
-            Debug.Log(dragHandler);
             return dragHandler.Item;
         }
     }
@@ -50,7 +49,6 @@ public class HotbarButton : MonoBehaviour
         
         if (item != null)
         {
-            Debug.Log(item.Name);
             inventory.UseItem(item);
             interacting.equiped = true;
             interacting.animal = item.transform;

@@ -66,11 +66,18 @@ public class Hotbar : MonoBehaviour
             Image image = imageTransform.GetComponent<Image>();
             TextMeshProUGUI txtCount = textTransform.GetComponent<TextMeshProUGUI>();
 
+            ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
+
+            // We found the item in the UI
+            if (itemDragHandler.Item == null)
+                continue;
+
 
             // Found the slot to remove from
             if (e.Item.Slot.Id == index)
             {
                 int itemCount = e.Item.Slot.Count;
+                itemDragHandler.Item = e.Item.Slot.FirstItem;
                 if (itemCount < 2)
                 {
                     txtCount.text = "";

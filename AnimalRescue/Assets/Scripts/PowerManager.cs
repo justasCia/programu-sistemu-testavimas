@@ -21,6 +21,7 @@ public class PowerManager : MonoBehaviour
 
     public void GetPower(string animal)
     {
+        Debug.Log(animal);
         switch (animal)
         {
             case "Dog":
