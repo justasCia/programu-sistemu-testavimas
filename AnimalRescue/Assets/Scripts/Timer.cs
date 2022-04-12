@@ -49,6 +49,11 @@ public class Timer : MonoBehaviour
         timer.text = string.Format("{0:00}:{1:00}", min, sec);
     }
 
+    public void StartTimer()
+    {
+        IsRuning = true;
+    }
+
     void OnNoTimeRemaining()
     {
         OutOfTime.Invoke();
