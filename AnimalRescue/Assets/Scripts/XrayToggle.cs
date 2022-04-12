@@ -19,8 +19,11 @@ public class XrayToggle : MonoBehaviour
         rendererSettings.rendererFeatures[0].SetActive(false);
 
         currentAmount = maxAmount;
-        XrayBar.maxValue = currentAmount;
-        XrayBar.value = currentAmount;
+        if (XrayBar != null)
+        {
+            XrayBar.maxValue = currentAmount;
+            XrayBar.value = currentAmount;
+        }
     }
 
     // Update is called once per frame
@@ -42,8 +45,11 @@ public class XrayToggle : MonoBehaviour
     void XrayOn()
     {
         rendererSettings.rendererFeatures[0].SetActive(true);
-        currentAmount -= useAmount;
-        XrayBar.value = currentAmount;
+        if (XrayBar != null)
+        {
+            currentAmount -= useAmount;
+            XrayBar.value = currentAmount;
+        }
     }
 
     void XrayOff()

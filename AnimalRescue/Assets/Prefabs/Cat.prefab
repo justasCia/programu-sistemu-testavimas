@@ -1857,10 +1857,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Cat
   Image: {fileID: 21300000, guid: 3c1c749c04d124c4580f64e99826d999, type: 3}
-  InteractText: Press E to pickup the item
+  InteractText: Press E to pickup
   holdPoint: {fileID: 0}
-  DropRotation: {x: 0, y: 0, z: 0}
+  throwForce: {x: 5, y: 5}
+  cntrlr: {fileID: 0}
   UseItemAfterPickup: 0
+  interacting: {fileID: 0}
+  getPower:
+    m_PersistentCalls:
+      m_Calls: []
+  losePower:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7525372605182709309
 GameObject:
   m_ObjectHideFlags: 0

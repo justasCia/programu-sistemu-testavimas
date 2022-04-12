@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Igno.unity
     guid: fcaa0758537de1749a69bc40c34cafe7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TutorialLvl.unity
     guid: 98060d232a26f8142a7ca07611809828
+  - enabled: 1
+    path: Assets/Scenes/LabirintasLevel.unity
+    guid: 2f188b274f9cf17429684bf0b399ef7c
   m_configObjects: {}
