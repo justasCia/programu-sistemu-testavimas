@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LabirintasLevel.unity
     guid: 2f188b274f9cf17429684bf0b399ef7c
+  - enabled: 1
+    path: Assets/Scenes/MemoryLvl.unity
+    guid: ba14e83f5d2269443b00ac6d04e520a3
   m_configObjects: {}

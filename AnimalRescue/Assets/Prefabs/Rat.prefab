@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Rat
   Image: {fileID: 21300000, guid: a8140405e9f7709408ce039d12378092, type: 3}
-  InteractText: Press E to pickup the item
+  InteractText: Press E to pickup
   holdPoint: {fileID: 0}
   throwForce: {x: 5, y: 5}
   cntrlr: {fileID: 0}

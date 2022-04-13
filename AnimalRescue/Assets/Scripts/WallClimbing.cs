@@ -32,7 +32,7 @@ public class WallClimbing : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "climbable")
+        if(other.tag == "climbable" && this.enabled)
         {
             playerMovement.enabled = false;
             climbing = true;

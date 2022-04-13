@@ -21,6 +21,7 @@ public class PreasurePlate : MonoBehaviour
             LayerMask.NameToLayer("Animal") == other.gameObject.layer)
 
         {
+            Debug.Log("pressed");
             ObjOnPlate.Add(other);
             Activate();
         }

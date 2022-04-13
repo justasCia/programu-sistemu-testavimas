@@ -276,7 +276,7 @@ MonoBehaviour:
   cursor: {fileID: 0}
   defaultCur:
     image: {fileID: -2413806693520163455, guid: 31f0911e82737934b8a99912ddc8c83b, type: 3}
-    scale: {x: 0.15, y: 0.15, z: 0.15}
+    scale: {x: 0.08, y: 0.08, z: 0.08}
   interactionCur:
     image: {fileID: 21300000, guid: 3c1c749c04d124c4580f64e99826d999, type: 3}
     scale: {x: 0.5, y: 0.5, z: 0.5}
