@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HotbarButton : MonoBehaviour
@@ -10,6 +11,7 @@ public class HotbarButton : MonoBehaviour
     public KeyCode keyCode;
     public interacting interacting;
     private Button button;
+    public UnityEvent losePower;
 
     private void Awake()
     {
@@ -49,6 +51,7 @@ public class HotbarButton : MonoBehaviour
         
         if (item != null)
         {
+            GameObject.FindWithTag("Player").GetComponent<PowerManager>().LosePower();
             inventory.UseItem(item);
             interacting.equiped = true;
             interacting.animal = item.transform;
