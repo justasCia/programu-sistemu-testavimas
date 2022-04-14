@@ -49,12 +49,19 @@ public class interacting : MonoBehaviour
     RaycastHit hit;
     CharacterController cntrlr;
 
+    //labors
+    //public GameObject doggo;
+    //public float speed = 100f;
+    //bool isMoving = false;
+    //Vector3 poss = new Vector3();
+
     private void Start()
     {
         cntrlr = GetComponent<CharacterController>();
         Inventory.ItemUsed += Inventory_ItemUsed;
         Inventory.ItemRemoved += Inventory_ItemRemoved;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -93,6 +100,31 @@ public class interacting : MonoBehaviour
         //{
         //    animal.position = Vector3.Lerp(animal.position, holdPoint.position, lerpValue);
         //}
+
+
+        //laboro stuff
+        
+    }
+
+    void Lab2(Vector3 poss, float speed, bool isMoving, GameObject doggo)
+    {
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range+5))
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                poss = hit.point;
+                Debug.Log(poss);
+                isMoving = true;
+                
+                doggo.transform.LookAt(poss);
+            }
+        }
+        if (isMoving && poss != Vector3.zero)
+        {
+            //doggo.GetComponent<Rigidbody>().MovePosition(poss * Time.deltaTime * speed);
+            doggo.transform.position = Vector3.MoveTowards(doggo.transform.position, poss, speed);
+        }
+
     }
 
     private void OnDrawGizmos()

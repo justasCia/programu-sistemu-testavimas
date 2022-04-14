@@ -44,6 +44,7 @@ public class InventoryItemBase : InteractableItemBase
         transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
         transform.position = holdPoint.position;
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("HandHeld");
 
         //getPower.Invoke();
         GameObject.FindWithTag("Player").GetComponent<PowerManager>().GetPower(transform.tag);
@@ -64,6 +65,8 @@ public class InventoryItemBase : InteractableItemBase
 
         transform.GetComponent<Rigidbody>().AddForce(holdPoint.forward * throwForce.x, ForceMode.Impulse);
         transform.GetComponent<Rigidbody>().AddForce(holdPoint.up * throwForce.y, ForceMode.Impulse);
+
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Animal body parts");
 
         interacting.animal = null;
         interacting.equiped = false;

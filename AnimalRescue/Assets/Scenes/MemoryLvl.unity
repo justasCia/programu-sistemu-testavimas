@@ -518,7 +518,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86298a4d955e46340a174be1c4e592d2, type: 2}
+  - {fileID: 2100000, guid: daee9c5f6958962498296f5151d26376, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -868,7 +868,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh49214
+  m_Name: pb_Mesh39632
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1079,7 +1079,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b8ccc010568730479c66148a66edfbe, type: 2}
+  - {fileID: 2100000, guid: 2a41d890f41224b4f8e9c2bf1ee6bfcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2791,7 +2791,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5dd40de76c4bba346ac2e3834ce1deb8, type: 2}
+  - {fileID: 2100000, guid: c67ff4b8cd95c04439bd2d5e2dcb8751, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3034,6 +3034,10 @@ PrefabInstance:
     - target: {fileID: 6796209395905493465, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796209397108793620, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 36727
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
@@ -4385,7 +4389,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5dd40de76c4bba346ac2e3834ce1deb8, type: 2}
+  - {fileID: 2100000, guid: 51fa735102e5b9f4b981c661ad137a6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25997,6 +26001,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  combColors:
+  - {fileID: 2100000, guid: c67ff4b8cd95c04439bd2d5e2dcb8751, type: 2}
+  - {fileID: 2100000, guid: 2a41d890f41224b4f8e9c2bf1ee6bfcb, type: 2}
+  - {fileID: 2100000, guid: 51fa735102e5b9f4b981c661ad137a6b, type: 2}
+  - {fileID: 2100000, guid: daee9c5f6958962498296f5151d26376, type: 2}
+  colorsToChangeComb:
+  - {r: 0, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 1, g: 1, b: 0, a: 0}
+  - {r: 0, g: 0, b: 1, a: 0}
 --- !u!1001 &1626454139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26145,6 +26159,14 @@ PrefabInstance:
     - target: {fileID: 4083281972355543815, guid: bc28a828f3bf631409f0e85260b89ae5, type: 3}
       propertyPath: m_Name
       value: Dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962705435584231113, guid: bc28a828f3bf631409f0e85260b89ae5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051661954584069014, guid: bc28a828f3bf631409f0e85260b89ae5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc28a828f3bf631409f0e85260b89ae5, type: 3}

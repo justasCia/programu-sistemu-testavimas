@@ -11,9 +11,28 @@ public class ColorRoomMngr : MonoBehaviour
     public string combination = "0000";
     public UnityEvent correct;
 
+    [Header("For generated code")]
+    public Material[] combColors = new Material[4];
+    public Color[] colorsToChangeComb = new Color[4];
+
     private void Start()
     {
+        GenerateComb();
         UpdateCombination();
+    }
+
+
+    void GenerateComb()
+    {
+        int code;
+        combinationToGet = "";
+        for (int i = 0; i < 4; i++)
+        {
+            code = Random.Range(0, 3);
+            combinationToGet += code;
+            combColors[i].color = colorsToChangeComb[code];
+        }
+
     }
 
     public void UpdateCombination()
