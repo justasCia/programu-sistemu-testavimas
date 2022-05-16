@@ -3035,10 +3035,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6796209397108793620, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 36727
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
 --- !u!114 &953814539 stripped
