@@ -74,8 +74,21 @@ public class InventoryItemBase : InteractableItemBase
 
     public virtual void OnPickup()
     {
-        gameObject.SetActive(false);
+        transform.SetParent(holdPoint);
+        transform.position = holdPoint.position;
+        transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        StartCoroutine(ABC());
+        //gameObject.SetActive(false);
+    }
 
+    IEnumerator ABC()
+    {
+        transform.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+        //returning 0 will make it wait 1 frame
+        yield return new WaitForSeconds(0.5f);
+        //code goes here
+        transform.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+        gameObject.SetActive(false);
     }
 
     [Header("Throwing")]

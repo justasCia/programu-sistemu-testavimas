@@ -12,11 +12,11 @@ public class PreasurePlate : MonoBehaviour
 
     public bool isPressed = false;
 
-    List<Collider> ObjOnPlate = new List<Collider>();
+    public List<Collider> ObjOnPlate = new List<Collider>();
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other.gameObject.layer);
+        Debug.Log(other.gameObject.name);
         if (LayerMask.NameToLayer("Player") == other.gameObject.layer ||
             LayerMask.NameToLayer("Animal") == other.gameObject.layer)
 
@@ -29,7 +29,7 @@ public class PreasurePlate : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-
+        Debug.Log(other.gameObject.name);
         if (LayerMask.NameToLayer("Player") == other.gameObject.layer ||
             LayerMask.NameToLayer("Animal") == other.gameObject.layer)
         {
