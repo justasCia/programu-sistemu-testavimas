@@ -19,6 +19,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         //timer = GetComponent<TextMeshProUGUI>();
+        Time.timeScale = 1f;
         timeRemaining = initialMin * 60 + initialSec;
     }
 
@@ -36,6 +37,8 @@ public class Timer : MonoBehaviour
             {
                 timeRemaining = 0;
                 IsRuning = false;
+                Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
                 OnNoTimeRemaining();
             }
 
