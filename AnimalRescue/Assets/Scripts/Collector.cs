@@ -10,16 +10,33 @@ public class Collector : MonoBehaviour
 
     public UnityEvent OnCompleted;
 
+    public float defaultTimer = 2f;
+    public float timer;
+    bool collected = false;
+    bool completed = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        timer = defaultTimer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (collected && !completed)
+        {
+            if (timer > 0) 
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                Debug.Log("all collected");
+                completed = true;
+                OnCompleted.Invoke();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,7 +46,7 @@ public class Collector : MonoBehaviour
             currentCount++;
             if (currentCount >= animalCountLvl)
             {
-                StartCoroutine(Completed(2));
+                collected = true;
             }
         }
     }
@@ -39,6 +56,8 @@ public class Collector : MonoBehaviour
         if (LayerMask.NameToLayer("Animal") == other.gameObject.layer)
         {
             currentCount--;
+            timer = defaultTimer;
+            collected = false;
         }
     }
 
