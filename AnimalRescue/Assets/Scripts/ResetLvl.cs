@@ -20,6 +20,7 @@ public class ResetLvl : MonoBehaviour
 
     public void ResetScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Scenes.RestartScene();
     }
 }

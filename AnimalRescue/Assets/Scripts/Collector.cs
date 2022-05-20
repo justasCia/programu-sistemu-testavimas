@@ -9,6 +9,7 @@ public class Collector : MonoBehaviour
     public int currentCount = 0;
 
     public UnityEvent OnCompleted;
+    //public int LoadScene = 0;
 
     public float defaultTimer = 2f;
     public float timer;
