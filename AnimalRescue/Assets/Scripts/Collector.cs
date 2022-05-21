@@ -5,10 +5,12 @@ using UnityEngine.Events;
 
 public class Collector : MonoBehaviour
 {
+    public GameObject player;
     public int animalCountLvl = 3;
     public int currentCount = 0;
 
     public UnityEvent OnCompleted;
+    public GameObject completedMenu;
     //public int LoadScene = 0;
 
     public float defaultTimer = 2f;
@@ -19,6 +21,7 @@ public class Collector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         timer = defaultTimer;
     }
 
@@ -36,6 +39,7 @@ public class Collector : MonoBehaviour
                 Debug.Log("all collected");
                 completed = true;
                 OnCompleted.Invoke();
+                StartCoroutine(Completed(2f));
             }
         }
     }
@@ -66,7 +70,14 @@ public class Collector : MonoBehaviour
     {
         WaitForSeconds wait = new WaitForSeconds(sec);
         yield return wait;
-        Debug.Log("all collected");
-        OnCompleted.Invoke();
+        completedMenu.SetActive(true);
+        DisablePlayer();
+    }
+
+    public void DisablePlayer()
+    {
+        //player.GetComponent<CameraMovement>().enabled = false;
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
