@@ -21,7 +21,7 @@ public class PreasurePlate : MonoBehaviour
             LayerMask.NameToLayer("Animal") == other.gameObject.layer)
 
         {
-            Debug.Log("pressed");
+            //Debug.Log("pressed");
             ObjOnPlate.Add(other);
             Activate();
         }
@@ -29,7 +29,7 @@ public class PreasurePlate : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
         if (LayerMask.NameToLayer("Player") == other.gameObject.layer ||
             LayerMask.NameToLayer("Animal") == other.gameObject.layer)
         {
