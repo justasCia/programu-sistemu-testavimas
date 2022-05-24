@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;               //  Nav mesh agent component
+    public Animator animator;
     public float startWaitTime = 2;                 //  Wait time of every action
     public float timeToRotate = 2;                  //  Wait time when the enemy detect near the player without seeing
     public float speedWalk = 6;                     //  Walking speed, speed in the nav mesh agent
@@ -46,6 +47,7 @@ public class EnemyAI : MonoBehaviour
 
         m_CurrentWaypointIndex = 0;                 //  Set the initial waypoint
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speedWalk;             //  Set the navemesh speed with the normal speed of the enemy
@@ -106,7 +108,7 @@ public class EnemyAI : MonoBehaviour
                 
             }
         }
-        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) <= 1)
+        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) <= 1.5f)
         {
             Debug.Log("caught");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -169,12 +171,14 @@ public class EnemyAI : MonoBehaviour
     {
         navMeshAgent.isStopped = true;
         navMeshAgent.speed = 0;
+        animator.SetFloat("Speed",navMeshAgent.speed);
     }
 
     void Move(float speed)
     {
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speed;
+        animator.SetFloat("Speed", navMeshAgent.speed);
     }
 
     void CaughtPlayer()
@@ -213,7 +217,7 @@ public class EnemyAI : MonoBehaviour
             Vector3 dirToPlayer = (player.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle / 2)
             {
-                float dstToPlayer = Vector3.Distance(transform.position, player.position);          //  Distance of the enmy and the player
+                float dstToPlayer = Vector3.Distance(transform.position, player.position);        //  Distance of the enmy and the player
                 if (!Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask))
                 {
                     m_playerInRange = true;             //  The player has been seeing by the enemy and then the nemy starts to chasing the player
