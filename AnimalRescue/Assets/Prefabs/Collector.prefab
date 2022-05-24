@@ -5218,9 +5218,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7921837463109312886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.75, z: 7.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.5, y: 0.81398, z: 7.3149}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7925873031936155225}
   - {fileID: 7925873032102432046}
@@ -5281,6 +5281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a5ce7928d01c645957262bfdf04209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   animalCountLvl: 3
   currentCount: 0
   OnCompleted:
@@ -5322,6 +5323,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  completedMenu: {fileID: 0}
   defaultTimer: 2
   timer: 0
 --- !u!1001 &7921837461702921840

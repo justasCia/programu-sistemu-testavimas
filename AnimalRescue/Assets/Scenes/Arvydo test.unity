@@ -2690,30 +2690,6 @@ PrefabInstance:
       propertyPath: interacting
       value: 
       objectReference: {fileID: 55923115}
-    - target: {fileID: 3058208998535270391, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
-      propertyPath: interacting
-      value: 
-      objectReference: {fileID: 55923115}
-    - target: {fileID: 3058208999229231453, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
-      propertyPath: interacting
-      value: 
-      objectReference: {fileID: 55923115}
-    - target: {fileID: 3058208999234178895, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
-      propertyPath: interacting
-      value: 
-      objectReference: {fileID: 55923115}
-    - target: {fileID: 3058209000264145572, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
-      propertyPath: interacting
-      value: 
-      objectReference: {fileID: 55923115}
-    - target: {fileID: 3058209000414480035, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
-      propertyPath: interacting
-      value: 
-      objectReference: {fileID: 55923115}
-    - target: {fileID: 3376629606433367453, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
-      propertyPath: interacting
-      value: 
-      objectReference: {fileID: 55923115}
     - target: {fileID: 4998209970700192177, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4783,7 +4759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7921837463109312777, guid: e600fb4731c501d4cabcb157088378cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.75
+      value: 0.545
       objectReference: {fileID: 0}
     - target: {fileID: 7921837463109312777, guid: e600fb4731c501d4cabcb157088378cf, type: 3}
       propertyPath: m_LocalPosition.z
