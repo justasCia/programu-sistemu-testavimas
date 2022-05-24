@@ -292,6 +292,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770820ce72ca58419a03dcb95b386c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ratScale: 0.25
+  powerUpHolder: {fileID: 0}
+  empty: {fileID: -2413806693520163455, guid: 31f0911e82737934b8a99912ddc8c83b, type: 3}
+  speedUp: {fileID: -1547272065, guid: 63a491d7f75264348b57466497639ace, type: 3}
+  sizeDown: {fileID: 1649634229, guid: 63a491d7f75264348b57466497639ace, type: 3}
+  wallClimb: {fileID: 1220650371, guid: 63a491d7f75264348b57466497639ace, type: 3}
 --- !u!114 &475046827848503898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +416,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.08
+  near clip plane: 0.05
   far clip plane: 1000
   field of view: 60
   orthographic: 0
