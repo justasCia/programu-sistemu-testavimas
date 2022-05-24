@@ -2106,7 +2106,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68980
+  m_Name: pb_Mesh105578
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2331,6 +2331,10 @@ PrefabInstance:
       propertyPath: Inventory
       value: 
       objectReference: {fileID: 1494534584}
+    - target: {fileID: 2014548325, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
+      propertyPath: powerUpHolder
+      value: 
+      objectReference: {fileID: 432434900}
     - target: {fileID: 6796209395905493446, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2442,6 +2446,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b11fdad6950471b45a009582c931b88c, type: 3}
+--- !u!114 &432434900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 432434900, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
+  m_PrefabInstance: {fileID: 696389780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &469911123 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7885115215254767165, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
@@ -3959,7 +3974,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68920
+  m_Name: pb_Mesh105518
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4662,8 +4677,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 169012933}
     - target: {fileID: 878921290, guid: e600fb4731c501d4cabcb157088378cf, type: 3}
-      propertyPath: OnCompleted.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      propertyPath: animalCountLvl
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 878921290, guid: e600fb4731c501d4cabcb157088378cf, type: 3}
       propertyPath: OnCompleted.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
