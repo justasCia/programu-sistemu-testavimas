@@ -6,6 +6,7 @@ public class DoorManager : MonoBehaviour
 {
     public bool IsOpen = false;
     Animator anim;
+    public AudioSource doorsound;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class DoorManager : MonoBehaviour
         {
             IsOpen = true;
             anim.SetBool("IsOpen", IsOpen);
+            doorsound.Play();
         }
     }
 

@@ -5,6 +5,9 @@ using UnityEngine;
 public class PowerManager : MonoBehaviour
 {
     //Transform animal = null;
+    public AudioSource dogsound;
+    public AudioSource catsound;
+    public AudioSource ratsound;
 
     private void Start() 
     {
@@ -26,13 +29,16 @@ public class PowerManager : MonoBehaviour
         {
             case "Dog":
                 gameObject.GetComponent<PlayerMovement>().speed = 10f;
+                dogsound.Play();
                 break;
             case "Cat":
                 gameObject.GetComponent<WallClimbing>().enabled = true;
+                catsound.Play();
                 break;
             case "Rat":
                 //transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.25f, 0.25f, 0.25f), 0.1f);
                 transform.localScale =  new Vector3(0.25f, 0.25f, 0.25f);
+                ratsound.Play();
                 break;
         }
     }

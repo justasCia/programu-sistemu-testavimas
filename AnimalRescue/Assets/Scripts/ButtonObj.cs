@@ -10,6 +10,7 @@ public class ButtonObj : MonoBehaviour
     bool isPressed = false;
     Animator anim;
     public UnityEvent pressed;
+    public AudioSource buttonSound;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class ButtonObj : MonoBehaviour
             isPressed = true;
             anim.SetTrigger("Interacted");
             pressed.Invoke();
+            buttonSound.Play();
             if (bumpable)
             {
                 Unpress();
