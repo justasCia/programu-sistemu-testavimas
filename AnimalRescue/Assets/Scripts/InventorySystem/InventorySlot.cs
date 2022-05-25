@@ -72,4 +72,10 @@ public class InventorySlot
         }
         return false;
     }
+    
+    public string ItemName()
+    {
+        InventoryItemBase first = mItemStack.Peek();
+        return first.name;
+    }
 }

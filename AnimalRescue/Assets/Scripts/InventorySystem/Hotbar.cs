@@ -8,8 +8,8 @@ public class Hotbar : MonoBehaviour
 {
 
     public Inventory Inventory;
-
     public GameObject MessagePanel;
+    public AnimalCount animalCount;
 
     // Use this for initialization
     void Start()
@@ -43,7 +43,7 @@ public class Hotbar : MonoBehaviour
                     txtCount.text = itemCount.ToString();
                 else
                     txtCount.text = "";
-
+                animalCount.UpdateCount(e.Item);
                 itemDragHandler.Item = e.Item;
 
                 break;
@@ -86,7 +86,7 @@ public class Hotbar : MonoBehaviour
                 {
                     txtCount.text = itemCount.ToString();
                 }
-
+                animalCount.UpdateCount(e.Item);
                 if (itemCount == 0)
                 {
                     image.enabled = false;
