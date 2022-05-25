@@ -292,6 +292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5770820ce72ca58419a03dcb95b386c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dogsound: {fileID: 0}
+  catsound: {fileID: 0}
+  ratsound: {fileID: 0}
   ratScale: 0.25
   powerUpHolder: {fileID: 0}
   empty: {fileID: -2413806693520163455, guid: 31f0911e82737934b8a99912ddc8c83b, type: 3}
@@ -424,7 +427,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 36727
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
