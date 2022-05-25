@@ -16,7 +16,9 @@ public class AnimalCount : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        dogText.text = 0 + " / " + dogCount.ToString();
+        catText.text = 0 + " / " + catCount.ToString();
+        ratText.text = 0 + " / " + ratCount.ToString();
     }
 
     // Update is called once per frame
