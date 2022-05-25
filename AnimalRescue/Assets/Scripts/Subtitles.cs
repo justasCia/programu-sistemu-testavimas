@@ -26,6 +26,7 @@ public class Subtitles : MonoBehaviour
     {
         subtitles.text = "";
         index = 0;
+        ShowNextLine();
     }
 
     public void ShowNextLine()
