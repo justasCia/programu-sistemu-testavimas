@@ -14375,18 +14375,6 @@ PrefabInstance:
       propertyPath: Inventory
       value: 
       objectReference: {fileID: 701709447}
-    - target: {fileID: 1250042034, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
-      propertyPath: losePower.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250042034, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
-      propertyPath: losePower.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250042034, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
-      propertyPath: losePower.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2014548325, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
       propertyPath: powerUpHolder
       value: 
@@ -14438,10 +14426,6 @@ PrefabInstance:
     - target: {fileID: 6796209395905493465, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6796209397108793620, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}

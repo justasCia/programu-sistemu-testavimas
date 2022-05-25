@@ -3348,13 +3348,14 @@ GameObject:
   - component: {fileID: 1088728782}
   - component: {fileID: 1088728784}
   - component: {fileID: 1088728783}
+  - component: {fileID: 1088728785}
   m_Layer: 0
   m_Name: SubtitlePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1088728782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3414,6 +3415,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088728781}
   m_CullTransparentMesh: 1
+--- !u!114 &1088728785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088728781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f9f2ec8ade2ea4cb5573f415f3820e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - lineText: Hello friends
+    duration: 3
+  - lineText: How u doin?
+    duration: 3
+  subtitles: {fileID: 2050135429}
+  subtitlesPanel: {fileID: 1088728781}
 --- !u!1 &1094639306
 GameObject:
   m_ObjectHideFlags: 0
@@ -4399,7 +4419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Subtitles Subtitles Subtitles Subtitles Subtitles '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4693,9 +4713,45 @@ PrefabInstance:
       value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
+      propertyPath: bumpable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
+      propertyPath: pressed.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
+      propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
       propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1033803518}
+    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
+      propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1088728785}
+    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
+      propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
+      propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
+      propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Subtitles, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
+      propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
+      propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
 --- !u!1001 &4868535939593563365
@@ -4786,6 +4842,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1395604004, guid: 7d06ed9ae695dc64e91176a1d07b256f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395604005, guid: 7d06ed9ae695dc64e91176a1d07b256f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1019887416915342887, guid: 7d06ed9ae695dc64e91176a1d07b256f, type: 3}
       propertyPath: m_Name
       value: Robot

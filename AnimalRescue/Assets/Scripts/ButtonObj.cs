@@ -26,7 +26,8 @@ public class ButtonObj : MonoBehaviour
             isPressed = true;
             anim.SetTrigger("Interacted");
             pressed.Invoke();
-            buttonSound.Play();
+            if (buttonSound != null)
+                buttonSound.Play();
             if (bumpable)
             {
                 Unpress();
