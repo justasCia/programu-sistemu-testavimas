@@ -14,6 +14,8 @@ public class PreasurePlate : MonoBehaviour
 
     public List<Collider> ObjOnPlate = new List<Collider>();
 
+    public AudioSource plateSound;
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.name);
@@ -44,6 +46,7 @@ public class PreasurePlate : MonoBehaviour
         isPressed = true;
         anim.SetBool("Pressed", isPressed);
         pressed.Invoke();
+        plateSound.Play();
     }
     
     void Disactivate()
