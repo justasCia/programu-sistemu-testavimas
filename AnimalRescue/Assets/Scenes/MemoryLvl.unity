@@ -9499,7 +9499,7 @@ PrefabInstance:
       objectReference: {fileID: 1637298552}
     - target: {fileID: 2014548325, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
       propertyPath: ratScale
-      value: 0.08
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2014548325, guid: 48cf541d02c898c41b7990486e54e4a3, type: 3}
       propertyPath: ratsound

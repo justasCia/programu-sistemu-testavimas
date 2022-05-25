@@ -50,7 +50,7 @@ public class PowerManager : MonoBehaviour
                 break;
             case "Rat":
                 //transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.25f, 0.25f, 0.25f), 0.1f);
-                transform.localScale =  new Vector3(0.25f, 0.25f, 0.25f);
+                transform.localScale =  new Vector3(ratScale, ratScale, ratScale);
                 ratsound.Play();
 				ChangeImage(sizeDown);
                 break;

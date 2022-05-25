@@ -15,10 +15,10 @@ public class Subtitles : MonoBehaviour
 
     [SerializeField] List<Line> lines;
     public TextMeshProUGUI subtitles;
-    public GameObject subtitlesPanel;
+    //public GameObject subtitlesPanel;
 
     int index = 0;
-    bool isShowing = false;
+    //bool isShowing = false;
 
 
     // Start is called before the first frame update
@@ -28,26 +28,14 @@ public class Subtitles : MonoBehaviour
         index = 0;
     }
 
-    public void ShowLine()
+    public void ShowNextLine()
     {
-        if (!isShowing && index < lines.Count)
+        if (index < lines.Count)
         {
-            isShowing = true;
-            subtitles.text = index.ToString();
-            Debug.Log(index);
-            subtitlesPanel.SetActive(true);
-            isShowing = false;
+            subtitles.text = lines[index].lineText;
             index++;
-            //StartCoroutine(Show(lines[index]));
         }
 
     }
 
-    IEnumerator Show(Line line)
-    {
-        yield return new WaitForSeconds(line.duration);
-        subtitlesPanel.SetActive(false);
-        isShowing = false;
-        index++;
-    }
 }
