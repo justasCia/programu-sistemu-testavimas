@@ -3355,7 +3355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1088728782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3433,7 +3433,6 @@ MonoBehaviour:
   - lineText: How u doin?
     duration: 3
   subtitles: {fileID: 2050135429}
-  subtitlesPanel: {fileID: 1088728781}
 --- !u!1 &1094639306
 GameObject:
   m_ObjectHideFlags: 0
@@ -4738,7 +4737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
       propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ShowLine
+      value: ShowNextLine
       objectReference: {fileID: 0}
     - target: {fileID: 4414176579265090792, guid: 8e49305af1a0d674e979fe28de4b1f50, type: 3}
       propertyPath: pressed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
