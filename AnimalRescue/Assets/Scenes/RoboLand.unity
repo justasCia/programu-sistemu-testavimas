@@ -20430,7 +20430,7 @@ PrefabInstance:
       objectReference: {fileID: 2028974743}
     - target: {fileID: 878921290, guid: e600fb4731c501d4cabcb157088378cf, type: 3}
       propertyPath: animalCountLvl
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 878921290, guid: e600fb4731c501d4cabcb157088378cf, type: 3}
       propertyPath: OnCompleted.m_PersistentCalls.m_Calls.Array.data[2].m_Target

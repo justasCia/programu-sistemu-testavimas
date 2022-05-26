@@ -43,6 +43,8 @@ public class Timer : MonoBehaviour
             }
 
         }
+
+        TotalTimer.UpdateTimer(Time.deltaTime);
     }
 
     void DisplayTime(float timeToDisplay)

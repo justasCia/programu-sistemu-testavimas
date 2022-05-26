@@ -10,7 +10,7 @@ public class Subtitles : MonoBehaviour
     private class Line
     {
         public string lineText;
-        public float duration;
+        //public float duration;
     }
 
     [SerializeField] List<Line> lines;
