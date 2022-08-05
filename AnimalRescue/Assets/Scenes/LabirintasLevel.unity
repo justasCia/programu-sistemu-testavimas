@@ -58314,7 +58314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194545984, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
       propertyPath: dogCount
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194545984, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
+      propertyPath: ratCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2098698709, guid: a23ba69b3c44e5f40a87c5922907023a, type: 3}
       propertyPath: m_AnchorMax.y

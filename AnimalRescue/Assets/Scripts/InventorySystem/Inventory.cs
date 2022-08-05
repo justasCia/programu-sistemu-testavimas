@@ -62,6 +62,7 @@ public class Inventory : MonoBehaviour
 
     internal void UseItem(InventoryItemBase item)
     {
+        //Debug.Log(item.name + " selected");
         if (ItemUsed != null)
         {
             ItemUsed(this, new InventoryEventArgs(item));
@@ -72,6 +73,7 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(InventoryItemBase item)
     {
+        //Debug.Log(item.name + " ev");
         foreach (InventorySlot slot in mSlots)
         {
             if (slot.Remove(item))

@@ -256,11 +256,11 @@ public class interacting : MonoBehaviour
     private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
     {
         InventoryItemBase item = e.Item;
-
+        //Debug.Log(item.name + "");
         GameObject goItem = (item as MonoBehaviour).gameObject;
         goItem.SetActive(true);
         goItem.transform.parent = null;
-        Debug.Log("Inventory_ItemRemoved metodas:" + goItem.name);
+        //Debug.Log("Inventory_ItemRemoved metodas:" + goItem.name);
         if (item == mCurrentItem)
         {
             mCurrentItem = null;

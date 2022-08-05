@@ -35,23 +35,26 @@ public class PowerManager : MonoBehaviour
 
     public void GetPower(string animal)
     {
-        Debug.Log(animal);
+        //Debug.Log(animal);
         switch (animal)
         {
             case "Dog":
                 gameObject.GetComponent<PlayerMovement>().speed = 10f;
-                dogsound.Play();
+                if (dogsound != null)
+                    dogsound.Play();
 				ChangeImage(speedUp);
                 break;
             case "Cat":
                 gameObject.GetComponent<WallClimbing>().enabled = true;
-                catsound.Play();
+                if (catsound != null)
+                    catsound.Play();
 				ChangeImage(wallClimb);
                 break;
             case "Rat":
                 //transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.25f, 0.25f, 0.25f), 0.1f);
                 transform.localScale =  new Vector3(ratScale, ratScale, ratScale);
-                ratsound.Play();
+                if (ratsound != null)
+                    ratsound.Play();
 				ChangeImage(sizeDown);
                 break;
         }

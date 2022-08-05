@@ -30,7 +30,7 @@ public class AnimalCount : MonoBehaviour
     public void UpdateCount(InventoryItemBase item)
     {
         string animal = item.Name;
-        Debug.Log(animal);
+        //Debug.Log(animal);
         switch (animal)
         {
             case "Dog":

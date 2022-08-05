@@ -35,6 +35,7 @@ public class HotbarButton : MonoBehaviour
         Graphic graphic = GetComponent<Graphic>();
         graphic.CrossFadeColor(color, button.colors.fadeDuration, true, true);
     }
+
     private InventoryItemBase AttachedItem
     {
         get
@@ -55,6 +56,7 @@ public class HotbarButton : MonoBehaviour
             inventory.UseItem(item);
             interacting.equiped = true;
             interacting.animal = item.transform;
+            //Debug.Log(item.name + " selected");
         }
     }
 }

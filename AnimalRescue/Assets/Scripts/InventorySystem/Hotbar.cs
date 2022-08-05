@@ -77,6 +77,7 @@ public class Hotbar : MonoBehaviour
             if (e.Item.Slot.Id == index)
             {
                 int itemCount = e.Item.Slot.Count;
+                //Debug.Log(itemCount);
                 itemDragHandler.Item = e.Item.Slot.FirstItem;
                 if (itemCount < 2)
                 {

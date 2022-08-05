@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class InventorySlot
 {
-    private Stack<InventoryItemBase> mItemStack = new Stack<InventoryItemBase>();
+    //private Stack<InventoryItemBase> mItemStack = new Stack<InventoryItemBase>();
+    private List<InventoryItemBase> mItemStack = new List<InventoryItemBase>();
 
     private int mId = 0;
 
@@ -22,7 +23,8 @@ public class InventorySlot
     public void AddItem(InventoryItemBase item)
     {
         item.Slot = this;
-        mItemStack.Push(item);
+        //mItemStack.Push(item);
+        mItemStack.Add(item);
     }
 
     public InventoryItemBase FirstItem
@@ -32,7 +34,8 @@ public class InventorySlot
             if (IsEmpty)
                 return null;
 
-            return mItemStack.Peek();
+            //return mItemStack.Peek();
+            return mItemStack[mItemStack.Count - 1];
         }
     }
 
@@ -41,7 +44,8 @@ public class InventorySlot
         if (IsEmpty)
             return false;
 
-        InventoryItemBase first = mItemStack.Peek();
+        //InventoryItemBase first = mItemStack.Peek();
+        InventoryItemBase first = mItemStack[mItemStack.Count - 1];
 
         if (first.Name == item.Name)
             return true;
@@ -64,18 +68,23 @@ public class InventorySlot
         if (IsEmpty)
             return false;
 
-        InventoryItemBase first = mItemStack.Peek();
-        if (first.Name == item.Name)
-        {
-            mItemStack.Pop();
-            return true;
-        }
-        return false;
+        //InventoryItemBase first = mItemStack.Peek();
+        //Debug.Log(first.name + " rem");
+        //if (first.name == item.name)
+        //{
+            //Debug.Log(item.gameObject.name + " removed, items " + mItemStack.Count);
+            //mItemStack.Pop();
+            bool a = mItemStack.Remove(item);
+            Debug.Log(a);
+            return a;
+        //}
+        //return false;
     }
     
     public string ItemName()
     {
-        InventoryItemBase first = mItemStack.Peek();
+        //InventoryItemBase first = mItemStack.Peek();
+        InventoryItemBase first = mItemStack[mItemStack.Count - 1];
         return first.name;
     }
 }
