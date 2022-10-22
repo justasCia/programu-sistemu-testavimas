@@ -25,7 +25,7 @@ public class interacting : MonoBehaviour
     public UnityEvent losePower;
    
     private InventoryItemBase mCurrentItem = null;
-    private InteractableItemBase mInteractItem = null;
+    public InteractableItemBase mInteractItem = null;
     public Hotbar Hotbar;
     public Inventory Inventory;
     public TextMeshProUGUI label;
