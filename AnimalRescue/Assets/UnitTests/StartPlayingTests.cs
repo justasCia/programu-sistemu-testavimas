@@ -8,11 +8,14 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor.SceneManagement;
 using NUnit.Framework.Interfaces;
+using WindowsInput;
+using WindowsInput.Native;
 
 public class StartPlayingTests
 {
-    [OneTimeSetUp] public void OneTimeSetup() => SceneManager.LoadScene("Assets/Scenes/StartMenu.unity");
+    //[OneTimeSetUp] public void OneTimeSetup() => SceneManager.LoadScene("Assets/Scenes/StartMenu.unity");
     [UnityTest]
+    [LoadScene("Assets/Scenes/StartMenu.unity")]
     public IEnumerator StartPlaying_PressesPlayButton_LoadsLevel1()
     {
         var gameObject = new GameObject();
@@ -27,19 +30,35 @@ public class StartPlayingTests
     }
 
     [UnityTest]
+    [LoadScene("Assets/Scenes/Dovydo test.unity")]
     public IEnumerator StartPlaying_LoadsLevelAndMovesPlayer_PlayerMoves()
     {
-        var gameObject = new GameObject();
-        var menu = gameObject.AddComponent<MainMenu>();
-        GameObject player = Resources.Load<GameObject>("Player");
-        player.GetComponent<interacting>().Inventory = Resources.Load<Inventory>("Inventory");
+        GameObject player = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
+        InputSimulator inputSimulator = new InputSimulator();
+        var position = player.transform.position;
 
-        menu.PlayGame();
+        inputSimulator.Keyboard.KeyPress(VirtualKeyCode.RIGHT);
         yield return null;
 
-        Debug.Log(player.GetComponent<interacting>().Inventory);
-        Assert.That(true == true);
+        Assert.That(position != player.transform.position);
 
+        yield return null;
+    }
+}
+public class LoadSceneAttribute : NUnitAttribute, IOuterUnityTestAction
+{
+    private string scene;
+
+    public LoadSceneAttribute(string scene) => this.scene = scene;
+
+    IEnumerator IOuterUnityTestAction.BeforeTest(ITest test)
+    {
+        Debug.Assert(scene.EndsWith(".unity"));
+        yield return EditorSceneManager.LoadSceneAsyncInPlayMode(scene, new LoadSceneParameters(LoadSceneMode.Single));
+    }
+
+    IEnumerator IOuterUnityTestAction.AfterTest(ITest test)
+    {
         yield return null;
     }
 }

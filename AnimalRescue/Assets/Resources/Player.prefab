@@ -224,6 +224,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  playerX: 0
+  playerZ: 0
 --- !u!114 &6796209395905493445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,8 +264,9 @@ MonoBehaviour:
   losePower:
     m_PersistentCalls:
       m_Calls: []
-  Hotbar: {fileID: 0}
-  Inventory: {fileID: 0}
+  mInteractItem: {fileID: 0}
+  Hotbar: {fileID: 3376629606168297526, guid: 02838ce54ff61cb418b5abcceeca7787, type: 3}
+  Inventory: {fileID: 3098986702680240742, guid: 76c0e5cfa7678f74789ac289dceb000a, type: 3}
   label: {fileID: 0}
   animal: {fileID: 0}
   animalMask:
@@ -273,7 +276,7 @@ MonoBehaviour:
   interMask:
     serializedVersion: 2
     m_Bits: 2048
-  cursor: {fileID: 0}
+  cursor: {fileID: 1757910798378983311, guid: e83896c5ea3fa6a48a1391a6b61b6041, type: 3}
   defaultCur:
     image: {fileID: -2413806693520163455, guid: 31f0911e82737934b8a99912ddc8c83b, type: 3}
     scale: {x: 0.12, y: 0.12, z: 0.12}
