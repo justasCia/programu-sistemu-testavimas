@@ -7,7 +7,7 @@ public class ButtonObj : MonoBehaviour
 {
     public bool bumpable = false;
     public bool pressable = true;
-    bool isPressed = false;
+    public bool isPressed = false;
     Animator anim;
     public UnityEvent pressed;
     public AudioSource buttonSound;

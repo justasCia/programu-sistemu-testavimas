@@ -18,11 +18,10 @@ public class StartPlayingTests
     [LoadScene("Assets/Scenes/StartMenu.unity")]
     public IEnumerator StartPlaying_PressesPlayButton_LoadsLevel1()
     {
-        var gameObject = new GameObject();
-        var menu = gameObject.AddComponent<MainMenu>();
+        var button = GameObject.Find("PlayButton");
         var prevSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        
-        menu.PlayGame();
+
+        button.GetComponent<Button>().onClick.Invoke();
         yield return null;
 
         Assert.That(SceneManager.GetActiveScene().buildIndex-1 == prevSceneIndex);
