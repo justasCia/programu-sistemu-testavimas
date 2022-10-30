@@ -52,6 +52,7 @@ public class HotbarButton : MonoBehaviour
         
         if (item != null)
         {
+            Debug.Log($"Item is not null: {item.Name}");
             GameObject.FindWithTag("Player").GetComponent<PowerManager>().LosePower();
             inventory.UseItem(item);
             interacting.equiped = true;

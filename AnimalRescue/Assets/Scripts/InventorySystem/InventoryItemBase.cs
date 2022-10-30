@@ -35,7 +35,7 @@ public class InventoryItemBase : InteractableItemBase
         GameObject.FindWithTag("Player").GetComponent<PowerManager>().LosePower();
 
         transform.gameObject.SetActive(true);
-        transform.SetParent(holdPoint);
+        //transform.SetParent(holdPoint);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         transform.Find("Armature").gameObject.SetActive(false);
@@ -74,7 +74,7 @@ public class InventoryItemBase : InteractableItemBase
 
     public virtual void OnPickup()
     {
-        GameObject inventory = GameObject.Find("Inventory");
+        GameObject inventory = GameObject.FindGameObjectWithTag("Inventory");
         transform.SetParent(inventory.transform);
         transform.position = inventory.transform.position;
         //transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;

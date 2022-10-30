@@ -24,7 +24,7 @@ public class interacting : MonoBehaviour
     public UnityEvent getPower;
     public UnityEvent losePower;
    
-    private InventoryItemBase mCurrentItem = null;
+    public InventoryItemBase mCurrentItem = null;
     public InteractableItemBase mInteractItem = null;
     public Hotbar Hotbar;
     public Inventory Inventory;
@@ -237,14 +237,14 @@ public class interacting : MonoBehaviour
         currentItem.SetActive(active);
         currentItem.transform.parent = active ? holdPoint.transform : null;
     }
-    private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
+    public void Inventory_ItemUsed(object sender, InventoryEventArgs e)
     {
         // If the player carries an item, un-use it (remove from player's hand)
         if (mCurrentItem != null)
         {
             SetItemActive(mCurrentItem, false);
         }
-
+        Debug.Log($"Event item: {e.Item }");
         InventoryItemBase item = e.Item;
 
         // Use item (put it to hand of the player)

@@ -18,20 +18,22 @@ public class Hotbar : MonoBehaviour
         Inventory.ItemRemoved += Inventory_ItemRemoved;
     }
 
-    private void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
+    public void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
     {
+        Debug.Log(e.Item);
         Transform inventoryPanel = transform.Find("InventoryPanel");
         int index = -1;
         foreach (Transform slot in inventoryPanel)
         {
             index++;
-
             // Border... Image
             Transform imageTransform = slot.GetChild(0).GetChild(0);
             Transform textTransform = slot.GetChild(0).GetChild(1);
             Image image = imageTransform.GetComponent<Image>();
             TextMeshProUGUI txtCount = textTransform.GetComponent<TextMeshProUGUI>();
             ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
+
+            Debug.Log(itemDragHandler);
 
             if (index == e.Item.Slot.Id)
             {
@@ -43,7 +45,10 @@ public class Hotbar : MonoBehaviour
                     txtCount.text = itemCount.ToString();
                 else
                     txtCount.text = "";
-                animalCount.UpdateCount(e.Item);
+                if (animalCount != null)
+                {
+                    animalCount.UpdateCount(e.Item);
+                }
                 itemDragHandler.Item = e.Item;
 
                 break;

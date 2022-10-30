@@ -9,6 +9,7 @@ TagManager:
   - Cat
   - Parrot
   - Rat
+  - Inventory
   layers:
   - Default
   - TransparentFX

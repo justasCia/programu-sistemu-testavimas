@@ -3,56 +3,77 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using WindowsInput;
+using WindowsInput.Native;
 
 public class InventoryTets
 {
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
     [UnityTest]
-    public IEnumerator AddItem_EmptyMSlotsAddDog_AddsDogToFirstSlot()
+    public IEnumerator InteractWithItem_EmptyInventoryInteractWithDog_AddsDogToFirstSlot()
     {
-        var gameObject = new GameObject();
-        var inventory = gameObject.AddComponent<Inventory>();
-        var dog = gameObject.AddComponent<Dog>();
+        GameObject playerGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
+        var player = playerGameObject.GetComponent<interacting>();
+        GameObject.Instantiate(Resources.Load<GameObject>("Inventory"));
 
-        inventory.AddItem(dog);
+        GameObject dogGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Dog"));
+        var dog = dogGameObject.GetComponent<Dog>();
+        player.mInteractItem = dog;
+        player.InteractWithItem();
 
-        Assert.That(inventory.mSlots[0].Count == 1);
+        Assert.That(player.Inventory.mSlots[0].Count == 1);
+        Assert.That(player.Inventory.mSlots[0].FirstItem is Dog);
         yield return null;
+        player.Inventory.RemoveItem(dog);
     }
 
     [UnityTest]
-    public IEnumerator AddItem_AlreadyHasOneDogInMSlotsAddDog_AddsDogToFirstSlotInStack()
+    public IEnumerator InteractWithItem_AlreadyHasOneDogInMSlotsInterractWithDog_AddsDogToFirstSlotInStack()
     {
-        var gameObject = new GameObject();
-        var inventory = gameObject.AddComponent<Inventory>();
-        var dog1 = gameObject.AddComponent<Dog>();
-        inventory.mSlots[0].AddItem(dog1);
-        var dog2 = gameObject.AddComponent<Dog>();
+        GameObject playerGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
+        var player = playerGameObject.GetComponent<interacting>();
+        GameObject.Instantiate(Resources.Load<GameObject>("Inventory"));
 
-        inventory.AddItem(dog2);
+        GameObject dogGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Dog"));
+        var dog = dogGameObject.GetComponent<Dog>();
+        var inventory = player.Inventory;
+        inventory.mSlots[0].AddItem(dog);
+
+        var dogGameObject2 = GameObject.Instantiate(Resources.Load<GameObject>("Dog"));
+        var dog2 = dogGameObject2.GetComponent<Dog>();
+        player.mInteractItem = dog2;
+        player.InteractWithItem();
 
         Assert.That(inventory.mSlots[0].Count == 2);
         yield return null;
+        inventory.RemoveItem(dog);
+        inventory.RemoveItem(dog2);
     }
 
     [UnityTest]
-    public IEnumerator AddItem_DogInFirstSlotAddCat_AddsCatToSecondSlot()
+    public IEnumerator InteractWithItem_AlreadyHasOneDogInMSlotsInterractWithCat_AddsCatToSecondSlot()
     {
-        var gameObject = new GameObject();
-        var inventory = gameObject.AddComponent<Inventory>();
-        var dog = gameObject.AddComponent<Dog>();
-        dog.Name = "Dog";
+        GameObject playerGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
+        var player = playerGameObject.GetComponent<interacting>();
+        GameObject.Instantiate(Resources.Load<GameObject>("Inventory"));
+
+        GameObject dogGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Dog"));
+        var dog = dogGameObject.GetComponent<Dog>();
+        var inventory = player.Inventory;
         inventory.mSlots[0].AddItem(dog);
 
-        //Debug.Log(inventory.mSlots[0].FirstItem.GetType());
-        var cat = gameObject.AddComponent<Cat>();
-        cat.Name = "Cat";
-        inventory.AddItem(cat);
+        GameObject catGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Cat"));
+        var cat = catGameObject.GetComponent<Cat>();
+
+        player.mInteractItem = cat;
+        player.InteractWithItem();
 
         Assert.That(inventory.mSlots[0].FirstItem is Dog);
         Assert.That(inventory.mSlots[1].FirstItem is Cat);
         yield return null;
+        inventory.RemoveItem(dog);
+        inventory.RemoveItem(cat);
     }
 
     [UnityTest]
@@ -92,6 +113,42 @@ public class InventoryTets
 
         Assert.That(inventory.mSlots[0].FirstItem is Dog);
         Assert.That(inventory.mSlots[1].FirstItem is Cat);
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator test()
+    {
+        GameObject playerGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
+        var player = playerGameObject.GetComponent<interacting>();
+        GameObject.Instantiate(Resources.Load<GameObject>("Inventory"));
+        var hotbarObject = GameObject.Instantiate(Resources.Load<GameObject>("Hotbar"));
+        yield return null;
+
+        player.Inventory.ItemAdded += hotbarObject.GetComponent<Hotbar>().InventoryScript_ItemAdded;
+        yield return null;
+        player.Inventory.ItemUsed += playerGameObject.GetComponent<interacting>().Inventory_ItemUsed;
+        yield return null;
+
+        GameObject dogGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Dog"));
+        var dog = dogGameObject.GetComponent<Dog>();
+        player.mInteractItem = dog;
+        player.InteractWithItem();
+
+        yield return null;
+
+        GameObject catGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Cat"));
+        var cat = catGameObject.GetComponent<Cat>();
+        player.mInteractItem = cat;
+        player.InteractWithItem();
+
+        yield return null;
+
+        InputSimulator inputSimulator = new InputSimulator();
+        //Debug.Log(player.mCurrentItem);
+        //inputSimulator.Keyboard.KeyPress(VirtualKeyCode.VK_1);
+        yield return new WaitForSeconds(5);
+        Debug.Log(player.mCurrentItem);
         yield return null;
     }
 }

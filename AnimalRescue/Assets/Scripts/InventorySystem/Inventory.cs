@@ -51,7 +51,6 @@ public class Inventory : MonoBehaviour
         if (freeSlot != null)
         {
             freeSlot.AddItem(item);
-
             if (ItemAdded != null)
             {
                 ItemAdded(this, new InventoryEventArgs(item));
@@ -63,6 +62,7 @@ public class Inventory : MonoBehaviour
     internal void UseItem(InventoryItemBase item)
     {
         //Debug.Log(item.name + " selected");
+        Debug.Log($"Item used null? {ItemUsed == null}");
         if (ItemUsed != null)
         {
             ItemUsed(this, new InventoryEventArgs(item));

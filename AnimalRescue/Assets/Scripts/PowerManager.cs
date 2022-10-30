@@ -20,7 +20,7 @@ public class PowerManager : MonoBehaviour
     public Sprite wallClimb;
 
 
-    private void Start() 
+    private void Start()
     {
         gameObject.GetComponent<WallClimbing>().enabled = false;
     }
@@ -29,7 +29,7 @@ public class PowerManager : MonoBehaviour
     {
         //animal = gameObject.GetComponent<interacting>().animal;
 
-        
+
 
     }
 
@@ -42,20 +42,20 @@ public class PowerManager : MonoBehaviour
                 gameObject.GetComponent<PlayerMovement>().speed = 10f;
                 if (dogsound != null)
                     dogsound.Play();
-				ChangeImage(speedUp);
+                ChangeImage(speedUp);
                 break;
             case "Cat":
                 gameObject.GetComponent<WallClimbing>().enabled = true;
                 if (catsound != null)
                     catsound.Play();
-				ChangeImage(wallClimb);
+                ChangeImage(wallClimb);
                 break;
             case "Rat":
                 //transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.25f, 0.25f, 0.25f), 0.1f);
-                transform.localScale =  new Vector3(ratScale, ratScale, ratScale);
+                transform.localScale = new Vector3(ratScale, ratScale, ratScale);
                 if (ratsound != null)
                     ratsound.Play();
-				ChangeImage(sizeDown);
+                ChangeImage(sizeDown);
                 break;
         }
     }
@@ -71,6 +71,9 @@ public class PowerManager : MonoBehaviour
 
     void ChangeImage(Sprite img)
     {
-        powerUpHolder.sprite = img;
+        if (powerUpHolder != null)
+        {
+            powerUpHolder.sprite = img;
+        }
     }
 }
