@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsOpen: 0
-  anim: {fileID: 7704842450693715812}
   doorsound: {fileID: 0}
 --- !u!1 &7704842451260880410
 GameObject:

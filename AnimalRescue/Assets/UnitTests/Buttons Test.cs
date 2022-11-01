@@ -26,16 +26,14 @@ public class ButtonsTest
     [UnityTest]
     public IEnumerator PressButton_PressesButton_DoorOpens()
     {
+        var door = Resources.Load<GameObject>("Door");
         var button = GameObject.Instantiate(Resources.Load<GameObject>("ButtonDoor"));
-        var door = GameObject.Instantiate(Resources.Load<GameObject>("Door"));
         yield return null;
 
-        //button.GetComponent<Interactable>().onInteract.Invoke();
-        
-        button.GetComponent<ButtonObj>().Pressed();
-        yield return new WaitForSeconds(10);
+        button.GetComponent<Interactable>().onInteract.Invoke();
+        yield return null;
 
-        var isOpen = door.GetComponent<DoorManager>().IsOpen;
+        var isOpen =door.GetComponent<DoorManager>().IsOpen;
 
         Assert.That(isOpen == true);
         yield return null;

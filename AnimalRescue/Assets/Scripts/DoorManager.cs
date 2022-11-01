@@ -20,8 +20,11 @@ public class DoorManager : MonoBehaviour
         if (!IsOpen)
         {
             IsOpen = true;
-            anim.SetBool("IsOpen", IsOpen);
-            doorsound.Play();
+            if (anim != null)
+            {
+                anim.SetBool("IsOpen", IsOpen);
+                doorsound.Play();
+            }
         }
     }
 
@@ -30,7 +33,7 @@ public class DoorManager : MonoBehaviour
         if (IsOpen)
         {
             IsOpen = false;
-            anim.SetBool("IsOpen", IsOpen);
+            //anim.SetBool("IsOpen", IsOpen);
         }
     }
 }
