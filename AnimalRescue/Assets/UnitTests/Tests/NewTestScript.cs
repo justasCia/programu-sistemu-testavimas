@@ -1,17 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using WindowsInput;
-using WindowsInput.Native;
 
-public class InventoryTets
+public class NewTestScript
 {
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
-    [UnityTest]
-    public IEnumerator InteractWithItem_EmptyInventoryInteractWithDog_AddsDogToFirstSlot()
+    [Test]
+    public void InteractWithItem_EmptyInventoryInteractWithDog_AddsDogToFirstSlot()
     {
         GameObject playerGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
         var player = playerGameObject.GetComponent<interacting>();
@@ -24,12 +19,11 @@ public class InventoryTets
 
         Assert.That(player.Inventory.mSlots[0].Count == 1);
         Assert.That(player.Inventory.mSlots[0].FirstItem is Dog);
-        yield return null;
-        player.Inventory.RemoveItem(dog);
+        //player.Inventory.RemoveItem(dog);
     }
 
-    [UnityTest]
-    public IEnumerator InteractWithItem_AlreadyHasOneDogInMSlotsInterractWithDog_AddsDogToFirstSlotInStack()
+    [Test]
+    public void InteractWithItem_AlreadyHasOneDogInMSlotsInterractWithDog_AddsDogToFirstSlotInStack()
     {
         GameObject playerGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
         var player = playerGameObject.GetComponent<interacting>();
@@ -46,13 +40,12 @@ public class InventoryTets
         player.InteractWithItem();
 
         Assert.That(inventory.mSlots[0].Count == 2);
-        yield return null;
         inventory.RemoveItem(dog);
         inventory.RemoveItem(dog2);
     }
 
-    [UnityTest]
-    public IEnumerator InteractWithItem_AlreadyHasOneDogInMSlotsInterractWithCat_AddsCatToSecondSlot()
+    [Test]
+    public void InteractWithItem_AlreadyHasOneDogInMSlotsInterractWithCat_AddsCatToSecondSlot()
     {
         GameObject playerGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
         var player = playerGameObject.GetComponent<interacting>();
@@ -71,13 +64,12 @@ public class InventoryTets
 
         Assert.That(inventory.mSlots[0].FirstItem is Dog);
         Assert.That(inventory.mSlots[1].FirstItem is Cat);
-        yield return null;
         inventory.RemoveItem(dog);
         inventory.RemoveItem(cat);
     }
 
-    [UnityTest]
-    public IEnumerator RemoveItem_ItemExists_RemovesItem()
+    [Test]
+    public void RemoveItem_ItemExists_RemovesItem()
     {
         var gameObject = new GameObject();
         var inventory = gameObject.AddComponent<Inventory>();
@@ -92,11 +84,10 @@ public class InventoryTets
 
         Assert.That(inventory.mSlots[0].FirstItem is null);
         Assert.That(inventory.mSlots[1].FirstItem is Cat);
-        yield return null;
     }
 
-    [UnityTest]
-    public IEnumerator RemoveItem_ItemDoesntExists_InventoryStaysTheSame()
+    [Test]
+    public void RemoveItem_ItemDoesntExists_InventoryStaysTheSame()
     {
         var gameObject = new GameObject();
         var inventory = gameObject.AddComponent<Inventory>();
@@ -113,42 +104,5 @@ public class InventoryTets
 
         Assert.That(inventory.mSlots[0].FirstItem is Dog);
         Assert.That(inventory.mSlots[1].FirstItem is Cat);
-        yield return null;
     }
-
-    //[UnityTest]
-    //public IEnumerator test()
-    //{
-    //    GameObject playerGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Player"));
-    //    var player = playerGameObject.GetComponent<interacting>();
-    //    GameObject.Instantiate(Resources.Load<GameObject>("Inventory"));
-    //    var hotbarObject = GameObject.Instantiate(Resources.Load<GameObject>("Hotbar"));
-    //    yield return null;
-
-    //    player.Inventory.ItemAdded += hotbarObject.GetComponent<Hotbar>().InventoryScript_ItemAdded;
-    //    yield return null;
-    //    player.Inventory.ItemUsed += playerGameObject.GetComponent<interacting>().Inventory_ItemUsed;
-    //    yield return null;
-
-    //    GameObject dogGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Dog"));
-    //    var dog = dogGameObject.GetComponent<Dog>();
-    //    player.mInteractItem = dog;
-    //    player.InteractWithItem();
-
-    //    yield return null;
-
-    //    GameObject catGameObject = GameObject.Instantiate(Resources.Load<GameObject>("Cat"));
-    //    var cat = catGameObject.GetComponent<Cat>();
-    //    player.mInteractItem = cat;
-    //    player.InteractWithItem();
-
-    //    yield return null;
-
-    //    InputSimulator inputSimulator = new InputSimulator();
-    //    //Debug.Log(player.mCurrentItem);
-    //    //inputSimulator.Keyboard.KeyPress(VirtualKeyCode.VK_1);
-    //    yield return new WaitForSeconds(5);
-    //    Debug.Log(player.mCurrentItem);
-    //    yield return null;
-    //}
 }
